@@ -1,0 +1,64 @@
+<header id="header">
+  <div class="hero-anime">
+    <div class="navigation-wrap bg-light start-header start-style">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="navbar navbar-expand-md navbar-light">
+              <a class="navbar-brand"><img src="../../../../assets/images/Contasync-white-slogan.png" alt=""></a>
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto py-4 py-md-0">
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4 active">
+                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="dashboard" role="button">Inicio</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="empleados">Empleados</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="planilla">Planilla</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="presupuesto">Presupuesto</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="unidad-organizativa">Organización</a>
+                  </li>
+                  <!-- Catálogos Dropdown -->
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" [class.show]="isCatalogOpen">
+                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown('catalog')" role="button">Catálogos</a>
+                    <div class="dropdown-menu" *ngIf="isCatalogOpen">
+                      <a class="dropdown-item" href="cargo">Cargo</a>
+                      <a class="dropdown-item" href="profesion">Profesión</a>
+                      <a class="dropdown-item" href="estado-civil">Estado Civil</a>
+                      <a class="dropdown-item" href="pais">Países</a>
+                      <a class="dropdown-item" href="tipo-descuento">Tipo de descuentos</a>
+                      <a class="dropdown-item" href="detalle-descuento">Detalle de descuentos</a>
+                      <a class="dropdown-item" href="tipo-documento">Tipo de documento</a>
+                    </div>
+                  </li>
+                  <!-- Usuarios Dropdown -->
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" [class.show]="isUsersOpen">
+                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown('users')" role="button">Usuarios</a>
+                    <div class="dropdown-menu" *ngIf="isUsersOpen">
+                      <a class="dropdown-item" href="usuario">Gestión Usuarios</a>
+                      <a class="dropdown-item" href="#">Roles</a>
+                    </div>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="#">User</a>
+                  </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" href="login">Log Out</a>
+                  </li>
+                </ul>
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

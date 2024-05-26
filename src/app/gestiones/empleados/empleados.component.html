@@ -1,0 +1,146 @@
+<div>
+    <app-header />
+  <!--Aquí comenzamos a meter el código de los componentes-->
+  <div>
+    <div class="my-5 py-5">
+      <div class="section full-height pt-5">
+        <div class="head">
+          <div></div>
+          <h2>EMPLEADOS</h2>
+
+          <button>
+            <a href="empleados/registrar-empleado"><span class="material-symbols-outlined addbtn"> add_circle </span> </a>
+          </button>
+        </div>
+
+        <!--Buscar-->
+        <div class="search">
+          <form class="search-container">
+            <input
+              type="text"
+              id="search-bar"
+              placeholder="Ingrese el nombre del empleado a buscar"
+            />
+            <a href="#"
+              ><img
+                class="search-icon"
+                src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+            /></a>
+          </form>
+        </div>
+
+        <!--Tabla-->
+        <div class="mx-5">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+                <th scope="col">Profesión</th>
+                <th scope="col">Municipio</th>
+                <th scope="col">Departamento</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Clara Elizabeth</td>
+                <td>Sandoval López</td>
+                <td>Contador</td>
+                <td>Soyapango</td>
+                <td>San Salvador</td>
+                <td class="acciones">
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined editbtn">
+                        edit
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined viewbtn">
+                        visibility
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined trashbtb">
+                        delete
+                      </span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Carlos Alejandro</td>
+                <td>Perez Asturias</td>
+                <td>Notario</td>
+                <td>San Salvador</td>
+                <td>San Salvador</td>
+                <td class="acciones">
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined editbtn">
+                        edit
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined viewbtn">
+                        visibility
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined trashbtb">
+                        delete
+                      </span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>Moises Andrés</td>
+                <td>Urbina Aguilar</td>
+                <td>Recursos Humanos</td>
+                <td>San Salvador</td>
+                <td>San Salvador</td>
+                <td class="acciones">
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined editbtn">
+                        edit
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined viewbtn">
+                        visibility
+                      </span>
+                    </button>
+                  </div>
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined trashbtb">
+                        delete
+                      </span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
