@@ -6,6 +6,7 @@
       class="container my-5 py-5 mx-auto"
       style="background-color: rgb(244, 244, 244); border-radius: 15px"
     >
+    <h1 class="text-center py-2">Registro de empleado</h1>
       <form id="formularioRegistro" class="needs-validation" novalidate>
         <!--Primera linea-->
         <div class="row d-flex justify-content-start mb-3">
@@ -41,7 +42,9 @@
         <div class="row d-flex justify-content-between mb-3">
           <!--Apellido paterno-->
           <div class="col-md-4">
-            <label for="apellido_paterno" class="form-label">Apellido paterno</label>
+            <label for="apellido_paterno" class="form-label"
+              >Apellido paterno</label
+            >
             <input
               type="text"
               class="form-control"
@@ -55,7 +58,9 @@
           </div>
           <!--Apellido materno-->
           <div class="col-md-4">
-            <label for="apellido_materno" class="form-label">Apellido materno</label>
+            <label for="apellido_materno" class="form-label"
+              >Apellido materno</label
+            >
             <input
               type="text"
               class="form-control"
@@ -69,7 +74,9 @@
           </div>
           <!--Apellido de casada-->
           <div class="col-md-4">
-            <label for="apellido_casada" class="form-label">Apellido de casada</label>
+            <label for="apellido_casada" class="form-label"
+              >Apellido de casada</label
+            >
             <input
               type="text"
               class="form-control"
@@ -82,185 +89,280 @@
 
         <!--Tercera linea-->
         <div class="row d-flex justify-content-start mb-3">
-            <!--Tipo de documento-->
-            <div class="col-md-5">
-                <label for="codigo_tipo_documento" class="form-label">Tipo de documento</label>
-                <select class="form-select" id="codigo_tipo_documento" required>
-                  <option selected disabled value="">Seleccione</option>
-                  <option>DUI</option>
-                  <option>Pasaporte</option>
-                </select>
-                <div class="invalid-feedback">Por favor seleccione un tipo de documento.</div>
-              </div>
-            <!--Número de documento-->
-            <div class="col-md-5">
-              <label for="numero_documento" class="form-label"
-                >Número de documento</label
-              >
-              <input
-                type="number"
-                class="form-control"
-                id="numero_documento"
-                placeholder=""
-              />
+          <!--Tipo de documento-->
+          <div class="col-md-4">
+            <label for="codigo_tipo_documento" class="form-label"
+              >Tipo de documento</label
+            >
+            <select class="form-select" id="codigo_tipo_documento" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>DUI</option>
+              <option>Pasaporte</option>
+            </select>
+            <div class="invalid-feedback">
+              Por favor seleccione un tipo de documento.
             </div>
           </div>
-
-        
-
-        <div class="row d-flex justify-content-between mb-3">
-          <div class="col-md-6">
-            <label for="validationCustom01" class="form-label"
-              >Nombre de pila</label
+          <!--Número de documento-->
+          <div class="col-md-4">
+            <label for="numero_documento" class="form-label"
+              >Número de documento</label
             >
             <input
-              type="text"
-              class="form-control text-muted"
-              id="validationCustom01"
-              placeholder="Federico"
-              required
+              type="number"
+              class="form-control"
+              id="numero_documento"
+              placeholder=""
             />
-            <div class="valid-feedback">Se ve bien!</div>
           </div>
-          <div class="col-md-6">
-            <label for="validationCustom02" class="form-label">Apellido</label>
-            <input
-              type="text"
-              class="form-control text-muted"
-              id="validationCustom02"
-              placeholder="Spina"
-              required
-            />
-            <div class="valid-feedback">Se ve bien!</div>
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="validationCustomUsername" class="form-label"
-            >Usuario</label
-          >
-          <div class="input-group has-validation">
-            <span class="input-group-text" id="inputGroupPrepend"></span>
-            <input
-              type="text"
-              class="form-control text-muted"
-              id="validationCustomUsername"
-              placeholder="Nombre de Usuario"
-              aria-describedby="inputGroupPrepend"
-              required
-            />
-            <div class="invalid-feedback">Porfavor , Agrege un usuario.</div>
-          </div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="exampleInputEmail1">Correo Electronico</label>
-          <label for="inputAddress" class="text-muted">(opcional)</label>
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            placeholder="vos@hotmail.com"
-          />
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="inputAddress">Habla a</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="1234 Main St"
-          />
-          <div class="invalid-feedback">Porfavor , Agrege una Calle.</div>
-        </div>
-
-        <div class="col-md-12 mb-3">
-          <label for="inputAddress">Dirrección 2</label>
-          <label for="inputAddress" class="text-muted">(opcional)</label>
-          <input
-            type="text"
-            class="form-control"
-            id="inputAddress"
-            placeholder="1234 Main St"
-          />
-          <div class="invalid-feedback">Porfavor , Agrege una Calle.</div>
-        </div>
-
-        <div class="row d-flex justify-content-between mb-3">
-          <div class="col-md-5">
-            <label for="validationCustom03" class="form-label">País</label>
-            <select class="form-select" id="validationCustom04" required>
-              <option selected disabled value="">Elegir...</option>
-              <option>Argentina</option>
-              <option>Chile</option>
-            </select>
-            <div class="invalid-feedback">Please select a valid state.</div>
-          </div>
-          <div class="col-md-3">
-            <label for="validationCustom04" class="form-label">Estado</label>
-            <select class="form-select" id="validationCustom04" required>
-              <option selected disabled value="">Elegir...</option>
-              <option>Buenos aries</option>
-            </select>
-            <div class="invalid-feedback">Please select a valid state.</div>
-          </div>
-          <div class="col-md-3">
-            <label for="validationCustom05" class="form-label"
-              >Código Postal</label
+          <!--Fecha de nacimiento-->
+          <div class="col-md-4">
+            <label for="fecha_nacimiento" class="form-label"
+              >Fecha de nacimiento</label
             >
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_nacimiento"
+              placeholder=""
+            />
+          </div>
+        </div>
+
+        <!--Cuarta linea-->
+        <div class="row d-flex justify-content-between mb-3">
+          <!--Numero NIT-->
+          <div class="col-md-4">
+            <label for="numero_NIT" class="form-label">NIT</label>
             <input
               type="text"
               class="form-control"
-              id="validationCustom05"
-              placeholder="1234"
+              id="numero_NIT"
+              placeholder=""
               required
             />
-            <div class="invalid-feedback">Please provide a valid zip.</div>
           </div>
-        </div>
-        <div class="mb-3">
-          <div class="col-12">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck"
-                required
-              />
-              <label class="form-check-label" for="invalidCheck">
-                La dirección de envío es la misma que mi dirección de
-                facturación
-              </label>
-              <div class="invalid-feedback">
-                Debes de aceptarlo si querés enviar.
-              </div>
+          <!--Numero ISSS-->
+          <div class="col-md-4">
+            <label for="numero_ISSS" class="form-label">ISSS</label>
+            <input
+              type="text"
+              class="form-control"
+              id="numero_ISSS"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor ingrese su numero de ISSS
             </div>
           </div>
-          <div class="col-12">
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="invalidCheck"
-                required
-              />
-              <label class="form-check-label" for="invalidCheck">
-                Guarde esta información para la próxima vez
-              </label>
-              <div class="invalid-feedback">
-                Debes de aceptarlo si querés enviar.
-              </div>
-            </div>
+          <!--Numero NUP-->
+          <div class="col-md-4">
+            <label for="numero_NUP" class="form-label">NUP</label>
+            <input
+              type="text"
+              class="form-control"
+              id="numero_NUP"
+              placeholder=""
+              required
+            />
           </div>
         </div>
 
-        <div class="col-10 t-10">
-          <button class="btn btn-primary" type="submit">
-            Enviar formulario
+        <!--Quinta linea-->
+        <div class="row d-flex justify-content-between mb-3">
+          <!--Estado Civil-->
+          <div class="col-md-4">
+            <label for="codigo_estado_civil" class="form-label"
+              >Estado civil</label
+            >
+            <select class="form-select" id="codigo_estado_civil" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>Femenino</option>
+              <option>Masculino</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+          <!--Correo Electrónico-->
+          <div class="col-md-4">
+            <label for="correo_electronico" class="form-label"
+              >Correo electrónico</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="correo_electronico"
+              placeholder="correo@ejemplo.com"
+              required
+            />
+            <div class="invalid-feedback">
+              Por favor ingrese su numero de ISSS
+            </div>
+          </div>
+          <!--Telefono-->
+          <div class="col-md-4">
+            <label for="telefono" class="form-label">Teléfono</label>
+            <input
+              type="number"
+              class="form-control"
+              id="telefono"
+              placeholder=""
+              required
+            />
+          </div>
+        </div>
+
+        <!--Sexta linea-->
+        <div class="row d-flex justify-content-between mb-3">
+          <!--Dirección-->
+          <div class="col-md-12">
+            <label for="direccion" class="form-label">Dirección</label>
+            <input
+              type="text"
+              class="form-control"
+              id="direccion"
+              placeholder=""
+              required
+            />
+          </div>
+        </div>
+
+        <!--Septima linea-->
+        <div class="row d-flex justify-content-between mb-3">
+          <!--Pais-->
+          <div class="col-md-4">
+            <label for="pais" class="form-label">País</label>
+            <select class="form-select" id="pais" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>El Salvador</option>
+              <option>Guatemala</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+          <!--Departamento-->
+          <div class="col-md-4">
+            <label for="departamento" class="form-label">Departamento</label>
+            <select class="form-select" id="departamento" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>San Salvador</option>
+              <option>San Miguel</option>
+              <option>Usulután</option>
+              <option>La Unión</option>
+              <option>Santa Ana</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+          <!--Municipio-->
+          <div class="col-md-4">
+            <label for="municipio" class="form-label">Municipio</label>
+            <select class="form-select" id="municipio" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>San Salvador</option>
+              <option>Soyapango</option>
+              <option>Ilopango</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+        </div>
+
+        <div class="segunda_seccion">
+          <h2 class="text-center py-3">Información profesional del empleado</h2>
+
+        <!--Octava linea-->
+        <div class="row d-flex justify-content-start mb-3">
+          <!--Profesion-->
+          <div class="col-md-4">
+            <label for="codigo_profesion" class="form-label">Profesión</label>
+            <select class="form-select" id="codigo_profesion">
+              <option selected disabled value="">Seleccione</option>
+              <option>Contador</option>
+              <option>Analista de Calidad</option>
+              <option>Programador</option>
+            </select>
+          </div>
+          <!--Cargo-->
+          <div class="col-md-4">
+            <label for="codigo_cargo" class="form-label">Cargo</label>
+            <select class="form-select" id="codigo_cargo">
+              <option selected disabled value="">Seleccione</option>
+              <option>Artista Técnico</option>
+              <option>Recursos humanos</option>
+              <option>QA jr.</option>
+            </select>
+          </div>
+        </div>
+
+        <!--Novena linea-->
+        <div class="row d-flex justify-content-between mb-3">
+          <!--Correo Institucional-->
+          <div class="col-md-4">
+            <label for="correo_institucional" class="form-label"
+              >Correo institucional</label
+            >
+            <input
+              type="email"
+              class="form-control"
+              id="correo_institucional"
+              placeholder=""
+            />
+          </div>
+          <!--Salario Base-->
+          <div class="col-md-4">
+            <label for="salario_base" class="form-label"
+              >Salario base</label
+            >
+            <input
+              type="number"
+              class="form-control"
+              id="salario_base"
+              placeholder=""
+            />
+            <div class="invalid-feedback">
+              Por favor ingrese su apellido materno
+            </div>
+          </div>
+          <!--Estado-->
+          <div class="col-md-4">
+            <label for="estado" class="form-label">Estado</label>
+            <select class="form-select" id="estado">
+              <option selected disabled value="">Seleccione</option>
+              <option>Activo</option>
+              <option>Inactivo</option>
+            </select>
+          </div>
+        </div>
+
+        <!--Decima linea-->
+        <div class="row d-flex justify-content-start mb-3">
+          <!--Fecha inicio-->
+          <div class="col-md-4">
+            <label for="fecha_inicio" class="form-label"
+              >Fecha inicio</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_inicio"
+              placeholder=""
+            />
+          </div>
+          <!--Fecha Fin-->
+          <div class="col-md-4">
+            <label for="fecha_fin" class="form-label"
+              >Fecha fin</label
+            >
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_fin"
+              placeholder=""
+            />
+          </div>
+        </div>
+        </div>
+        <div class="col-10 t-10 py-2 d-flex justify-content-end">
+          <button class="btn btn-primary py-3 px-3 d-flex justify-content-end" type="submit">
+            Guardar datos
           </button>
         </div>
       </form>
