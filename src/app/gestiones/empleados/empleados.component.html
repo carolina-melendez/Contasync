@@ -1,5 +1,5 @@
 <div>
-    <app-header />
+  <app-header />
   <!--Aquí comenzamos a meter el código de los componentes-->
   <div>
     <div class="my-5 py-5">
@@ -9,7 +9,11 @@
           <h2>EMPLEADOS</h2>
 
           <button>
-            <a href="empleados/registrar-empleado"><span class="material-symbols-outlined addbtn"> add_circle </span> </a>
+            <a href="empleados/registrar-empleado"
+              ><span class="material-symbols-outlined addbtn">
+                add_circle
+              </span>
+            </a>
           </button>
         </div>
 
@@ -61,9 +65,11 @@
                   </div>
                   <div>
                     <button>
-                      <span class="material-symbols-outlined viewbtn">
-                        visibility
-                      </span>
+                      <a href="empleados/ver-empleado/{id}"
+                        ><span class="material-symbols-outlined viewbtn">
+                          visibility
+                        </span>
+                      </a>
                     </button>
                   </div>
                   <div>
