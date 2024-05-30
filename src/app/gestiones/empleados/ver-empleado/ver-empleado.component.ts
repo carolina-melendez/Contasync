@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../../../shared/Components/header/header.component";
+
 
 @Component({
     selector: 'app-ver-empleado',
@@ -9,5 +10,5 @@ import { HeaderComponent } from "../../../shared/Components/header/header.compon
     imports: [HeaderComponent]
 })
 export class VerEmpleadoComponent {
-
+   
 }
