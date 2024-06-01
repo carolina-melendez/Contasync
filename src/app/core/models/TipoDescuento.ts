@@ -1,4 +1,4 @@
 export class TipoDescuento{
-    codigo_tipoDescuento?: number;
-    nombre_tipoDescuento?: string;
+    id_descuento?: number;
+    descripcion?: string;
 }

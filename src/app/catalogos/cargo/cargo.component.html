@@ -23,6 +23,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="cargos.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                        </tr>
                         <tr *ngFor="let cargo of cargos">
                             <td>{{ cargo.codigo_cargo }}</td>
                             <td>{{ cargo.cargo_descripcion }}</td>

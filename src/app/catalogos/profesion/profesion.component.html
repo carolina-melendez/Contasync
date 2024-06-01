@@ -20,6 +20,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="profesiones.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                        </tr>
                         <tr *ngFor="let profesion of profesiones">
                             <td>{{ profesion.id_profesion }}</td>
                             <td>{{ profesion.descripcion }}</td>
