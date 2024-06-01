@@ -18,7 +18,7 @@ export class CargoService {
 
     // Método que permite crear un nuevo cargo
     create(cargo: Cargo): Observable<Cargo> {
-        return this.http.put<Cargo>(this.url + '/cargo/', cargo);
+        return this.http.post<Cargo>(this.url + '/cargo/', cargo);
     }
 
     // Método que obtiene un solo cargo

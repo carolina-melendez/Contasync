@@ -7,33 +7,26 @@ import { Profesion } from "../../core/models/Profesion";
     providedIn: 'root',
 })
 export class profesionService{
-    private url: string = ""; //Aqui va el url de la api
+    private url: string = "http://127.0.0.1:8000/api"; 
 
     constructor(private http: HttpClient){}
 
-    //Obtiene la lista de profesion
     getAll(): Observable<Profesion[]>{
         return this.http.get<Profesion[]>(this.url + '/profesion/');
     }
 
-    //método que permite crear un nuevo profesion
     create(profesion:Profesion): Observable<Profesion>{
-        return this.http.put<Profesion>(this.url + '/profesion/', profesion)
-    };
+        return this.http.post<Profesion>(this.url + '/profesion/', profesion)
+    }
 
-    //método que obtiene un solo profesion
     get(id: number): Observable<Profesion>{
         return this.http.get<Profesion>(this.url + '/profesion/' + id);
     }
 
-    //método para actualizar profesion
     update(profesion: Profesion): Observable<Profesion>{
-        return this.http.put<Profesion>(
-            this.url + '/profesion/' + profesion.codigo_profesion + '/', profesion
-        );
+        return this.http.put<Profesion>(this.url + '/profesion/' + profesion.id_profesion, profesion);
     }
 
-    //método para eliminar profesion
     delete(id?:number): Observable<Profesion>{
         return this.http.delete<Profesion>(this.url + '/profesion/' + id);
     }

@@ -1,4 +1,4 @@
 export class Profesion{
-    codigo_profesion?: number;
+    id_profesion?: number;
     descripcion?: string;
 }
