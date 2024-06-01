@@ -1,1 +1,81 @@
-<p>cargo works!</p>
+<!-- Component HTML -->
+<div>
+    <app-header></app-header>
+    <div class="my-5 py-5">
+        <div class="section full-height pt-5">
+            <div class="head">
+                <div></div>
+                <h2>Gestión de Cargos</h2>
+                <button type="button" class="btn btn-primary" (click)="openCreateModal()">
+                    <span class="material-symbols-outlined addbtn">add_circle</span> 
+                </button>
+            </div>
+  
+            <div class="mx-5">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Descripción</th>
+                            <th>Salario Máximo</th>
+                            <th>Salario Mínimo</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let cargo of cargos">
+                            <td>{{ cargo.codigo_cargo }}</td>
+                            <td>{{ cargo.cargo_descripcion }}</td>
+                            <td>$ {{ cargo.salario_maximo }}</td>
+                            <td>$ {{ cargo.salario_minimo }}</td>
+                            <td class="acciones">
+                                <button type="button" class="btn btn-info" (click)="openEditModal(cargo)">
+                                    <span class="material-symbols-outlined editbtn">edit</span>
+                                </button>
+                                <button *ngIf="cargo.codigo_cargo !== undefined" type="button" class="btn btn-danger" (click)="confirmDelete(cargo.codigo_cargo!)">
+                                    <span class="material-symbols-outlined trashbtb">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+  
+            <!-- Modal -->
+            <div class="modal fade" id="cargoModal" tabindex="-1" role="dialog" aria-labelledby="cargoModalLabel" aria-hidden="true" #cargoModal>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="cargoModalLabel">{{ isEditMode ? 'Editar Cargo' : 'Nuevo Cargo' }}</h5>
+                            <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="cargoForm">
+                                <div class="form-group">
+                                    <label for="cargoDescripcion">Descripción</label>
+                                    <input type="text" id="cargoDescripcion" class="form-control" formControlName="cargo_descripcion">
+                                </div>
+                                <div class="form-group">
+                                    <label for="salarioMaximo">Salario Máximo</label>
+                                    <input type="number" id="salarioMaximo" class="form-control" formControlName="salario_maximo">
+                                </div>
+                                <div class="form-group">
+                                    <label for="salarioMinimo">Salario Mínimo</label>
+                                    <input type="number" id="salarioMinimo" class="form-control" formControlName="salario_minimo">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" (click)="saveCargo()">
+                                {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                            </button>
+                            <button type="button" class="btn btn-secondary" (click)="hideModal()">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
