@@ -20,6 +20,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="paises.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                          </tr>
                         <tr *ngFor="let pais of paises">
                             <td>{{ pais.id }}</td>
                             <td>{{ pais.nombre }}</td>

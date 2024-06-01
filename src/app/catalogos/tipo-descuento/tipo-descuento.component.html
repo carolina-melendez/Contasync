@@ -20,6 +20,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="tipoDescuentos.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                        </tr>
                         <tr *ngFor="let tipoDescuento of tipoDescuentos">
                             <td>{{ tipoDescuento.id_descuento }}</td>
                             <td>{{ tipoDescuento.descripcion }}</td>

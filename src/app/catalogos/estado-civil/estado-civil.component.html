@@ -20,6 +20,9 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <tr *ngIf="estadosCiviles.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                        </tr>
                         <tr *ngFor="let estadoCivil of estadosCiviles">
                             <td>{{ estadoCivil.id_estado_civil }}</td>
                             <td>{{ estadoCivil.descripcion }}</td>
