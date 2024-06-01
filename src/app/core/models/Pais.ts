@@ -1,4 +1,4 @@
 export class Pais{
-    codigo_pais?: number;
+    id?: number;
     nombre?: string;
 }
