@@ -1,40 +1,39 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
 import { Pais } from "../../core/models/Pais";
+import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
-export class paisService{
-    private url: string = ""; //Aqui va el url de la api
+export class PaisService {
+    private url: string = environment.apiUrl;
 
-    constructor(private http: HttpClient){}
+    constructor(private http: HttpClient) {}
 
-    //Obtiene la lista de pais
-    getAll(): Observable<Pais[]>{
+    // Obtiene la lista de paises
+    getAll(): Observable<Pais[]> {
         return this.http.get<Pais[]>(this.url + '/pais/');
     }
 
-    //método que permite crear un nuevo pais
-    create(pais:Pais): Observable<Pais>{
-        return this.http.put<Pais>(this.url + '/pais/', pais)
-    };
+    // Método que permite crear un nuevo país
+    create(pais: Pais): Observable<Pais> {
+        return this.http.post<Pais>(this.url + '/pais/', pais);
+    }
 
-    //método que obtiene un solo pais
-    get(id: number): Observable<Pais>{
+    // Método que obtiene un solo país
+    get(id: number): Observable<Pais> {
         return this.http.get<Pais>(this.url + '/pais/' + id);
     }
 
-    //método para actualizar pais
-    update(pais: Pais): Observable<Pais>{
-        return this.http.put<Pais>(
-            this.url + '/pais/' + pais.codigo_pais + '/', pais
-        );
+    // Método para actualizar país
+    update(pais: Pais): Observable<Pais> {
+        return this.http.put<Pais>(this.url + '/pais/' + pais.id + '/', pais);
     }
 
-    //método para eliminar pais
-    delete(id?:number): Observable<Pais>{
+    // Método para eliminar país
+    delete(id?: number): Observable<Pais> {
         return this.http.delete<Pais>(this.url + '/pais/' + id);
     }
 }

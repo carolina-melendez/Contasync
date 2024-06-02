@@ -2,12 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Profesion } from "../../core/models/Profesion";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class profesionService{
-    private url: string = "http://127.0.0.1:8000/api"; 
+
+    private url: string = environment.apiUrl;
 
     constructor(private http: HttpClient){}
 

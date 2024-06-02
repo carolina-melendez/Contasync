@@ -2,39 +2,40 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { TipoDocumento } from "../../core/models/TipoDocumento";
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class tipoDocumentoService{
-    private url: string = ""; //Aqui va el url de la api
+    private url: string = environment.apiUrl;
 
     constructor(private http: HttpClient){}
 
     //Obtiene la lista de Tipo de documento
     getAll(): Observable<TipoDocumento[]>{
-        return this.http.get<TipoDocumento[]>(this.url + '/tipo-documento/');
+        return this.http.get<TipoDocumento[]>(this.url + '/tipo_documento');
     }
 
     //método que permite crear un nuevo tipo de documento
     create(tipodocumento:TipoDocumento): Observable<TipoDocumento>{
-        return this.http.put<TipoDocumento>(this.url + '/tipo-documento/', tipodocumento)
+        return this.http.post<TipoDocumento>(this.url + '/tipo_documento', tipodocumento)
     };
 
     //método que obtiene un solo tipo de documento
     get(id: number): Observable<TipoDocumento>{
-        return this.http.get<TipoDocumento>(this.url + '/tipo-documento/' + id);
+        return this.http.get<TipoDocumento>(this.url + '/tipo_documento' + id);
     }
 
     //método para actualizar tipo de documento
     update(tipodocumento: TipoDocumento): Observable<TipoDocumento>{
         return this.http.put<TipoDocumento>(
-            this.url + '/tipo-documento/' + tipodocumento.codigo_tipo_documento + '/', tipodocumento
+            this.url + '/tipo_documento' + tipodocumento.codigo + '/', tipodocumento
         );
     }
 
     //método para eliminar tipo de documento
     delete(id?:number): Observable<TipoDocumento>{
-        return this.http.delete<TipoDocumento>(this.url + '/tipo-documento/' + id);
+        return this.http.delete<TipoDocumento>(this.url + '/tipo_documento' + id);
     }
 }
