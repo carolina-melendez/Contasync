@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component, Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
+import { TimeComponent } from '../time/time.component';
+
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TimeComponent],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
@@ -12,15 +14,23 @@ export class HeaderComponent implements OnInit {
 
   isCatalogOpen = false;
   isUsersOpen = false;
+  isUnidadOpen = false;
 
   toggleDropdown(dropdown: string) {
     if (dropdown === 'catalog') {
       this.isCatalogOpen = !this.isCatalogOpen;
       this.isUsersOpen = false; // Cerrar el otro dropdown si está abierto
+      this.isUnidadOpen = false; // Cerrar el otro dropdown si está abierto
     } else if (dropdown === 'users') {
       this.isUsersOpen = !this.isUsersOpen;
       this.isCatalogOpen = false; // Cerrar el otro dropdown si está abierto
+      this.isUnidadOpen = false; // Cerrar el otro dropdown si está abierto
+    } else if (dropdown === 'unidad') {
+      this.isUnidadOpen = !this.isUnidadOpen;
+      this.isCatalogOpen = false; // Cerrar el otro dropdown si está abierto
+      this.isUsersOpen = false; // Cerrar el otro dropdown si está abierto
     }
+    
   }
 
   @HostBinding('class.scroll-on') scrollClass = false;

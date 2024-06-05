@@ -1,1 +1,178 @@
-<p>unidad-organizativa works!</p>
+<div>
+    <app-header />
+    <!--Aquí comenzamos a meter el código de los componentes-->
+    <div>
+      <div class="my-5 py-5">
+        <div class="section full-height pt-5">
+          <div class="head">
+            <div></div>
+            <h2>UNIDADES</h2>
+  
+            <button type="button" class="btn btn-primary" (click)="openCreateModal()">
+                <span class="material-symbols-outlined addbtn">
+                  add_circle
+                </span>
+            </button>
+          </div>
+  
+          <!--Buscar-->
+          <div class="search">
+            <form class="search-container">
+              <input
+                type="text"
+                id="search-bar"
+                placeholder="Ingrese el nombre de la unidad a buscar"
+              />
+              <a href="#"
+                ><img
+                  class="search-icon"
+                  src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+              /></a>
+            </form>
+          </div>
+  
+          <!--Tabla-->
+          <div class="mx-5">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Código</th>
+                  <th scope="col">Nombre de la unidad</th>
+                  <th scope="col">Vinculado</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">CC-004</th>
+                  <td>Recursos Humanos</td>
+                  <td>Administración</td>
+                  <td class="acciones">
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined editbtn">
+                          edit
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <a href="empleados/ver-empleado/{id}"
+                          ><span class="material-symbols-outlined viewbtn">
+                            visibility
+                          </span>
+                        </a>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined trashbtb">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">CC-005</th>
+                  <td>Redes</td>
+                  <td>IT</td>
+                  <td class="acciones">
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined editbtn">
+                          edit
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined viewbtn">
+                          visibility
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined trashbtb">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+                <tr>
+                  <th scope="row">CC-001</th>
+                  <td>Presidencia</td>
+                  <td></td>
+                  <td class="acciones">
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined editbtn">
+                          edit
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined viewbtn">
+                          visibility
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined trashbtb">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+                      <!-- Modal -->
+                      <div class="modal fade" id="unidadModal" tabindex="-1" role="dialog" aria-labelledby="unidadModalLabel" aria-hidden="true" #unidadModal>
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="unidadModalLabel">{{ isEditMode ? 'Editar Unidad' : 'Nueva unidad' }}</h5>
+                                    <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    <form [formGroup]="unidadForm">
+                                        <div class="form-group">
+                                            <label for="centro_costos">Codigo costos</label>
+                                            <input type="text" id="centro_costos" class="form-control" 
+                                            formControlName="centro_costos">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nombre_unidad">Nombre</label>
+                                            <input type="text" id="nombre_unidad" class="form-control" 
+                                            formControlName="nombre_unidad">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="codigo_estructura">Vinculado</label>
+                                            <input type="text" id="codigo_estructura" class="form-control" 
+                                            formControlName="codigo_estructura">
+                                        </div>                                        
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-primary" (click)="saveUnidad()">
+                                        {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" (click)="hideModal()">Cerrar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

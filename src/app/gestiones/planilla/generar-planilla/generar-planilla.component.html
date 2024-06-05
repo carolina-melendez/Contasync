@@ -1,0 +1,116 @@
+<div>
+  <app-header />
+  <!--Aquí comenzamos a meter el código de los componentes-->
+  <div>
+    <div class="my-5 py-5">
+      <div class="section full-height pt-5">
+        <div class="head">
+          <div><br /></div>
+          <h2>PLANILLA</h2>
+          <div></div>
+        </div>
+        <!--Buscar-->
+        <form id="formulario">
+          <div class="form-row">
+            <label for="fechaInicio">Fecha de Inicio:</label>
+            <input type="date" id="fechaInicio" name="fechaInicio" />
+          </div>
+          <div class="form-row">
+            <label for="fechaFin">Fecha de Fin:</label>
+            <input type="date" id="fechaFin" name="fechaFin" />
+          </div>
+          <div class="form-row">
+            <label for="unidad">Seleccionar Unidad:</label>
+            <select id="unidad" name="unidad">
+              <option value="todas">Todas las Unidades</option>
+              <option value="departamento1">Departamento 1</option>
+              <option value="departamento2">Departamento 2</option>
+              <option value="departamento3">Departamento 3</option>
+              <!-- Agrega más departamentos según sea necesario -->
+            </select>
+          </div>
+          <div class="button-row">
+            <input
+            type="button"
+            value="Exportar Planilla"
+            id="exportarPlanilla"
+          />
+            <input
+              type="button"
+              value="Generar Planilla"
+              id="generarPlanilla"
+            />
+          </div>
+        </form>
+
+        <!--Tabla-->
+        <div class="mx-5">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre empleado</th>
+                <th scope="col">Salario base mensual</th>
+                <th scope="col">Ingresos extras</th>
+                <th scope="col">Sub total</th>
+                <th scope="col">ISSS</th>
+                <th scope="col">AFP</th>
+                <th scope="col">RENTA</th>
+                <th scope="col">Otros descuentos</th>
+                <th scope="col">Liquido a pagar</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>Clara Elizabeth Sandoval Lopez</td>
+                <td>$ 700</td>
+                <td> $ 50</td>
+                <td>$ 750</td>
+                <td>$ 22.50</td>
+                <td>$ 54.37</td>
+                <td>$ 37.78</td>
+                <td>$ 15.00</td>
+                <td>$ 620.35</td>
+                <td class="acciones">
+                  <div>
+                    <button>
+                      <a href="empleados/ver-empleado/{id}"
+                        ><span class="material-symbols-outlined viewbtn">
+                          visibility
+                        </span>
+                      </a>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>Carlos Alejandro Perez Asturias</td>
+                <td>$ 600</td>
+                <td> $ 250</td>
+                <td>$ 850</td>
+                <td>$ 25.50</td>
+                <td>$ 61.62</td>
+                <td>$ 46.76</td>
+                <td>$ 130.25</td>
+                <td>$ 586.87</td>
+                <td class="acciones">
+
+                  <div>
+                    <button>
+                      <span class="material-symbols-outlined viewbtn">
+                        visibility
+                      </span>
+                    </button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

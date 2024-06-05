@@ -1,0 +1,51 @@
+.view {
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 40px;
+}
+.info {
+  width: 75%;
+  height: 10px;
+  background-color: #0d1a34;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  border: none;
+}
+.material-symbols-outlined {
+  font-size: 25px;
+  padding-right: 8px;
+  margin-top: 2px; /* Esto puede ser ajustado o removido si no es necesario */
+}
+
+p {
+  font-size: 18px;
+  display: flex;
+  align-items: center; /* Alinea los ítems verticalmente al centro */
+}
+
+.hr {
+  width: 80%;
+  height: 1px;
+  align-self: center;
+  background-color: #000000;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  border-width: 1px;
+  margin-left: 50px;
+  margin-right: 50px;
+  border-color: #000000;
+}
+.detalle th,
+.detalle td {
+  width: 25%;
+}
+
+.head,
+h1 {
+  text-align: center;
+}
+.exportar {
+  padding-left: 150px;
+  padding-bottom: 25px;
+  padding-top:  -50px;
+}

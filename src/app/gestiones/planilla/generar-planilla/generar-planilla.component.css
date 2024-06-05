@@ -1,6 +1,6 @@
 /*CSS Editable*/
 body{
-	background-image: url(../../../assets/images/pattern-randomized.png) ;
+	background-image: url(../../../../assets/images/pattern-randomized.png) ;
 }
 
 h2{
@@ -98,3 +98,31 @@ h2{
   .trashbtb{
 	color: #850707;
   }
+
+#formulario{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-left: 75px;
+    padding-right: 75px;
+    padding-bottom: 25px;
+    padding-top: 25px;
+}
+
+.form-row{
+    padding: 15px;
+}
+.form-row label {
+    margin-right: 10px;
+}
+.form-row input, .form-row select {
+    margin-right: 20px;
+}
+.button-row {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+.button-row input {
+    margin-right: 10px;
+}

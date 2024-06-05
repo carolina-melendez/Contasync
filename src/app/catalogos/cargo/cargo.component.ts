@@ -6,7 +6,6 @@ import { Cargo } from '../../core/models/Cargo';
 import { HeaderComponent } from '../../shared/Components/header/header.component';
 import { CommonModule } from '@angular/common';
 
-
 @Component({
   selector: 'app-cargo',
   templateUrl: './cargo.component.html',

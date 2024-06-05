@@ -1,0 +1,78 @@
+<div>
+  <app-header />
+
+  <div class="my-5 py-5">
+    <div
+      class="container my-5 py-5 mx-auto"
+      style="background-color: rgb(244, 244, 244); border-radius: 15px"
+    >
+      <h1 class="text-center py-2">Agregar descuentos/ingresos</h1>
+      <form id="formularioRegistro" class="needs-validation" novalidate>
+        <!--Primera linea-->
+        <div class="row d-flex justify-content-start mb-3">
+          <!--Tipo de agregado-->
+          <div class="col-md-4">
+            <label for="tipo" class="form-label">Seleccione</label>
+            <select class="form-select" id="tipo" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>Ingreso</option>
+              <option>Descuento</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+          <!--Tipo de descuento o ingreso a aplicar-->
+          <div class="col-md-4">
+            <label for="opcion" class="form-label">Opciones</label>
+            <select class="form-select" id="opcion" required>
+              <option selected disabled value="">Seleccione</option>
+              <option>Pensión alimenticia</option>
+              <option>Prestamo</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
+          </div>
+          <!--Monto-->
+          <div class="col-md-4">
+            <label for="monto" class="form-label">Monto</label>
+            <input
+              type="number"
+              class="form-control"
+              id="monto"
+              placeholder=""
+              required
+            />
+            <div class="invalid-feedback">Por favor ingrese el monto</div>
+          </div>
+          <!--Fecha de inicio-->
+          <div class="col-md-4">
+            <label for="fecha_inicio" class="form-label">Fecha inicio</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_inicio"
+              placeholder=""
+            />
+          </div>
+
+          <!--Fecha fin-->
+          <div class="col-md-4">
+            <label for="fecha_fin" class="form-label">Fecha fin</label>
+            <input
+              type="date"
+              class="form-control"
+              id="fecha_fin"
+              placeholder=""
+            />
+          </div>
+        </div>
+        <div class="col-10 t-10 py-2 d-flex justify-content-end">
+          <button
+            class="btn btn-primary py-3 px-3 d-flex justify-content-end"
+            type="submit"
+          >
+            <a href="planilla">Guardar datos</a>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

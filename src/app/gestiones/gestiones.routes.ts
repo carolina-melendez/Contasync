@@ -7,6 +7,9 @@ import { UnidadOrganizativaComponent } from "./unidad-organizativa/unidad-organi
 import { UsuarioComponent } from "./usuario/usuario.component";
 import { RegistrarEmpleadoComponent } from "./empleados/registrar-empleado/registrar-empleado.component";
 import { VerEmpleadoComponent } from "./empleados/ver-empleado/ver-empleado.component";
+import { GenerarPlanillaComponent } from "./planilla/generar-planilla/generar-planilla.component";
+import { EditarPlanillaComponent } from "./planilla/editar-planilla/editar-planilla.component";
+import { BoletaPagoEmpleadoComponent } from "./planilla/boleta-pago-empleado/boleta-pago-empleado.component";
 
 
 export const GESTIONES_ROUTES: Routes = [
@@ -19,4 +22,10 @@ export const GESTIONES_ROUTES: Routes = [
 
     {path: 'empleados/registrar-empleado', component:RegistrarEmpleadoComponent},
     {path: 'empleados/ver-empleado/{id}', component:VerEmpleadoComponent},
+
+    {path: 'planilla/generar-planilla', component:GenerarPlanillaComponent},
+    {path: 'planilla/editar-planilla/{id}', component:EditarPlanillaComponent},
+    {path: 'planilla/boleta-pago/{id}', component:BoletaPagoEmpleadoComponent},
+
+
 ];

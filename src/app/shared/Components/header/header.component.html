@@ -23,8 +23,13 @@
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                     <a class="nav-link" href="presupuesto">Presupuesto</a>
                   </li>
-                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                    <a class="nav-link" href="unidad-organizativa">Organización</a>
+                  <!-- Catálogos Dropdown -->
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" [class.show]="isUnidadOpen">
+                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown('unidad')" role="button">Organización</a>
+                    <div class="dropdown-menu" *ngIf="isUnidadOpen">
+                      <a class="dropdown-item" href="organizacion">Empresa</a>
+                      <a class="dropdown-item" href="unidad-organizativa">Unidades</a>
+                    </div>
                   </li>
                   <!-- Catálogos Dropdown -->
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" [class.show]="isCatalogOpen">
@@ -53,6 +58,7 @@
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                     <a class="nav-link" href="login">Log Out</a>
                   </li>
+                  <li>
                 </ul>
               </div>
             </nav>
