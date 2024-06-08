@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Router, RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { AuthModule } from '../auth.module';
@@ -8,7 +8,7 @@ import { AuthModule } from '../auth.module';
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, AuthModule],
+  imports: [CommonModule, RouterOutlet, FormsModule, AuthModule, RouterModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })

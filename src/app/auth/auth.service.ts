@@ -4,46 +4,44 @@ import { Observable } from 'rxjs';
 import { environment } from "../../environments/environment";
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
     private url: string = environment.apiUrl;
 
-  constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient) { }
 
-  register(user: any): Observable<any> {
-    return this.http.post(`${this.url}/register`, user);
-  }
+    register(user: any): Observable<any> {
+        return this.http.post(`${this.url}/auth/register`, user);
+    }
 
-  login(credentials: any): Observable<any> {
-    return this.http.post(`${this.url}/login`, credentials);
-  }
+    login(credentials: any): Observable<any> {
+        return this.http.post(`${this.url}/auth/login`, credentials);
+    }
 
-  getProfile(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.get(`${this.url}/me`, { headers });
-  }
+    getProfile(): Observable<any> {
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        });
+        return this.http.get(`${this.url}/auth/me`, { headers });
+    }
 
-  logout(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.post(`${this.url}/logout`, {}, { headers });
-  }
+    logout(): Observable<any> {
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        });
+        return this.http.post(`${this.url}/auth/logout`, {}, { headers });
+    }
 
-  refresh(): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.post(`${this.url}/refresh`, {}, { headers });
-  }
+    refresh(): Observable<any> {
+        const headers = new HttpHeaders({
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+        });
+        return this.http.post(`${this.url}/auth/refresh`, {}, { headers });
+    }
 
-  resetPassword(email: string, password: string): Observable<any> {
-    const headers = new HttpHeaders({
-      'Authorization': `Bearer ${localStorage.getItem('token')}`
-    });
-    return this.http.post(`${this.url}/reset-password`, { email, password }, { headers });
-  }
+    resetPassword(email: string, password: string): Observable<any> {
+        return this.http.post(`${this.url}/auth/password_reset`, { email, password });
+    }
+    
 }
