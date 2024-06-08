@@ -1,0 +1,38 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+    background-color: #f8f9fa; 
+    border-radius: 1rem;
+    transition: all 0.3s; 
+    height: 100%; 
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+.card-title {
+    text-align: center;
+    font-size: 1.5rem; 
+}
+
+.card-title i {
+    display: block;
+    font-size: 3rem; 
+    color: #0d1a34; 
+    margin-bottom: 1rem; 
+}
+
+.card-text {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
