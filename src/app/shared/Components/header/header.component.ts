@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { TimeComponent } from '../time/time.component';
 import { AuthService } from '../../../auth/auth.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -39,7 +39,7 @@ export class HeaderComponent implements OnInit {
   private scrollPosition = 0; // Initialize scroll position
   headerElement: any;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2, private authService: AuthService) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.headerElement = this.elementRef.nativeElement.querySelector('.start-style');
@@ -52,7 +52,13 @@ export class HeaderComponent implements OnInit {
         console.error('Error al obtener el perfil del usuario', error);
       }
     );
+  }
 
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.userName = '';
+      this.router.navigate(['/login']);
+    });
   }
 
   @HostListener('window:scroll', ['$event'])

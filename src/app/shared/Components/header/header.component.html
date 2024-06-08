@@ -6,7 +6,8 @@
           <div class="col-12">
             <nav class="navbar navbar-expand-md navbar-light">
               <a class="navbar-brand"><img src="../../../../assets/images/Contasync-white-slogan.png" alt=""></a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -25,7 +26,8 @@
                   </li>
                   <!-- Catálogos Dropdown -->
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4" [class.show]="isUnidadOpen">
-                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown('unidad')" role="button">Organización</a>
+                    <a class="nav-link dropdown-toggle" (click)="toggleDropdown('unidad')"
+                      role="button">Organización</a>
                     <div class="dropdown-menu" *ngIf="isUnidadOpen">
                       <a class="dropdown-item" href="organizacion">Empresa</a>
                       <a class="dropdown-item" href="unidad-organizativa">Unidades</a>
@@ -54,10 +56,11 @@
                   </li>
                   <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
                     <a class="nav-link" href="#">{{ userName }}</a>
-                </li>                
-                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
-                    <a class="nav-link" href="login">Log Out</a>
                   </li>
+                  <li class="nav-item pl-4 pl-md-0 ml-0 ml-md-4">
+                    <a class="nav-link" (click)="logout()">Log Out</a>
+                  </li>
+
                   <li>
                 </ul>
               </div>
