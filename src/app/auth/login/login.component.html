@@ -1,0 +1,29 @@
+<div class="login-container">
+  <div class="logo-container vertical-center">
+    <img src="../../../assets/images/ContaSync.png" alt="">
+  </div>
+  <div class="vertical-center text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 offset-md-3">
+          <form (ngSubmit)="login()">
+            <img class="mb-4" src="../../../assets/images/ContaSync slogan.png" width="250">
+            <h1 class="h3 mb-3 fw-normal">¡Bienvenido!</h1>
+            <div class="form-floating">
+              <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" [(ngModel)]="credentials.email" name="email">
+              <label for="floatingInput">Correo electronico</label>
+            </div>
+            <div class="form-floating mt-3">
+              <input type="password" class="form-control" id="floatingPassword" placeholder="Password" [(ngModel)]="credentials.password" name="password">
+              <label for="floatingPassword">Contraseña</label>
+            </div>
+            <button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Entrar</button>
+            <p class="mt-4 mb-3 text-muted">
+              <a id="forgot-password" href="#">¿Ha olvidado su contraseña?</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
