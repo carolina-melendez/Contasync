@@ -14,9 +14,8 @@ export class Empleado{
     telefono?: number;
     direccion?: string;
    
-   
-    codigo_municipio?: number;
-    codigo_departamento?: number;
+    municipio_id?: number;
+    departamento_id?: number;
     codigo_pais?: number;
     codigo_tipo_documento?: number;
     codigo_estado_civil?: number;
