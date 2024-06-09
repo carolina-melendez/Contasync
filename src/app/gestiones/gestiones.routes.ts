@@ -10,6 +10,7 @@ import { VerEmpleadoComponent } from "./empleados/ver-empleado/ver-empleado.comp
 import { GenerarPlanillaComponent } from "./planilla/generar-planilla/generar-planilla.component";
 import { EditarPlanillaComponent } from "./planilla/editar-planilla/editar-planilla.component";
 import { BoletaPagoEmpleadoComponent } from "./planilla/boleta-pago-empleado/boleta-pago-empleado.component";
+import { RolesComponent } from "./usuario/roles/roles.component";
 
 
 export const GESTIONES_ROUTES: Routes = [
@@ -26,6 +27,7 @@ export const GESTIONES_ROUTES: Routes = [
     {path: 'planilla/generar-planilla', component:GenerarPlanillaComponent},
     {path: 'planilla/editar-planilla/{id}', component:EditarPlanillaComponent},
     {path: 'planilla/boleta-pago/{id}', component:BoletaPagoEmpleadoComponent},
+    {path: 'usuario/roles', component:RolesComponent}
 
 
 ];

@@ -1,0 +1,56 @@
+/*CSS Editable*/
+body{
+	background-image: url(../../../../assets/images/pattern-randomized.png) ;
+}
+
+h2{
+	text-align: center;
+}
+
+
+  td button{
+	border: none;
+	background-color: transparent;
+  }
+  .acciones{
+	display: flex;
+	padding-left: 1px;
+  }
+
+  .head{
+	display: flex;
+	justify-content: space-between;
+	margin-right: 120px;
+	margin-left: 120px;
+  }
+  
+  .head button{
+	border: none;
+	background-color: transparent;
+  }
+  .addbtn{
+	font-size: 50px;
+	color: #075711;
+  }
+
+  .editbtn{
+	color: #042F76;
+  }
+  
+  .viewbtn{
+	color:#BB8A04;
+  }
+
+  .trashbtb{
+	color: #850707;
+  }
+  .permissions-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.permissions-list .form-check {
+    flex: 0 0 33.33%; /* Establece un ancho fijo para que haya tres en una fila */
+    max-width: 33.33%; /* Establece un ancho máximo */
+    box-sizing: border-box; /* Incluye el padding y el border en el ancho */
+}
