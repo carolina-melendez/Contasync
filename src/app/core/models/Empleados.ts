@@ -13,8 +13,10 @@ export class Empleado{
     correo_electronico?: string;
     telefono?: number;
     direccion?: string;
-    municipio_id?: number;
-    departamento_id?: number;
+   
+   
+    codigo_municipio?: number;
+    codigo_departamento?: number;
     codigo_pais?: number;
     codigo_tipo_documento?: number;
     codigo_estado_civil?: number;

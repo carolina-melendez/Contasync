@@ -36,6 +36,18 @@
               placeholder=""
             />
           </div>
+          <!--Tercer nombre nombre-->
+          <div class="col-md-4">
+            <label for="tercer_nombre" class="form-label"
+              >Tercer nombre</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              id="tercer_nombre"
+              placeholder=""
+            />
+          </div>
         </div>
 
         <!--Segunda linea-->
@@ -215,7 +227,7 @@
         <!--Sexta linea-->
         <div class="row d-flex justify-content-between mb-3">
           <!--Dirección-->
-          <div class="col-md-12">
+          <div class="col-md-8">
             <label for="direccion" class="form-label">Dirección</label>
             <input
               type="text"
@@ -224,6 +236,16 @@
               placeholder=""
               required
             />
+          </div>
+          <!--Sexo-->
+          <div class="col-md-4">
+            <label for="sexo" class="form-label">Sexo</label>
+            <select class="form-select" id="sexo" required>
+              <option selected disabled value="">Seleccione</option>
+              <option value="Femenino">Femenino</option>
+              <option value="Masculino">Masculino</option>
+            </select>
+            <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
         </div>
 
@@ -288,6 +310,16 @@
               <option>Artista Técnico</option>
               <option>Recursos humanos</option>
               <option>QA jr.</option>
+            </select>
+          </div>
+          <!--Unidad-->
+          <div class="col-md-4">
+            <label for="codigo_unidad" class="form-label">Unidad</label>
+            <select class="form-select" id="codigo_unidad">
+              <option selected disabled value="">Seleccione</option>
+              <option>Departamento 1</option>
+              <option>Departamento 2</option>
+              <option>Departamento 3</option>
             </select>
           </div>
         </div>
