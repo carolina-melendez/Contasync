@@ -1,7 +1,6 @@
 .view {
   padding-left: 100px;
   padding-right: 100px;
-  padding-top: 40px;
 }
 .info {
   width: 75%;
@@ -46,6 +45,23 @@ h1 {
 }
 .exportar {
   padding-left: 150px;
-  padding-bottom: 25px;
-  padding-top:  -50px;
+  padding-right: 150px;
+  padding-top: -50px;
+  text-align: right;
+}
+.exportar button {
+  border: 2px solid #0D1A34; /* Borde de color verde oscuro */
+  padding: 10px; /* Espaciado interno */
+  background-color: #1c3870; /* Color de fondo verde oscuro */
+  color: white; /* Color del texto */
+  cursor: pointer; /* Cursor de mano al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de fuente */
+  text-align: center; /* Centrar el texto */
+  text-decoration: none;
+  border-radius: 3%;
+}
+
+.table th, .table td {
+  padding: 13px; /* Aumenta el tamaño del padding para agrandar las celdas */
+  font-size: 16px; /* Aumenta el tamaño de la fuente si es necesario */
 }
