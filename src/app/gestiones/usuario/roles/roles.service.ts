@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Observable, throwError } from "rxjs";
 import { Rol } from "../../../core/models/Rol";
 import { Permission } from "../../../core/models/Permission";
-import { environment } from "../../../../environments/environment";
+import { environment } from "../../../../environments/environment.prod";
 import { catchError } from "rxjs/operators";
 
 @Injectable({

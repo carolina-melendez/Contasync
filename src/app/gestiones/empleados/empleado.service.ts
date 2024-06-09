@@ -8,7 +8,7 @@ import { EstadoCivil } from '../../core/models/EstadoCivil';
 import { Pais } from '../../core/models/Pais';
 import { Municipio } from '../../core/models/Municipio';
 import { Profesion } from '../../core/models/Profesion';
-import { environment } from "../../../environments/environment";
+import { environment } from "../../../environments/environment.prod";
 
 @Injectable({
     providedIn: 'root',
