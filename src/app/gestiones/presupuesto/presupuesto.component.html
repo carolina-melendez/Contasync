@@ -1,1 +1,89 @@
-<p>presupuesto works!</p>
+<div>
+    <app-header></app-header>
+    <!-- Aquí comenzamos a meter el código de los componentes -->
+    <div>
+      <div class="my-5 py-5">
+        <div class="section full-height pt-5">
+          <div class="head">
+            <div></div>
+            <h2>PRESUPUESTO</h2>
+  
+            <button>
+              <a href="empleados/registrar-empleado">
+                <span class="material-symbols-outlined addbtn">
+                  add_circle
+                </span>
+              </a>
+            </button>
+          </div>
+  
+          <!-- Buscar -->
+          <div class="search">
+            <form class="search-container">
+              <input
+                type="text"
+                id="search-bar"
+                placeholder="Ingrese el nombre de la unidad a buscar"
+              />
+              <a href="#">
+                <img
+                  class="search-icon"
+                  src="http://www.endlessicons.com/wp-content/uploads/2012/12/search-icon.png"
+                />
+              </a>
+            </form>
+          </div>
+  
+          <!-- Tabla -->
+          <div class="mx-5">
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Unidad organizativa</th>
+                  <th scope="col">Monto</th>
+                  <th scope="col">Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngIf="presupuestos?.length === 0">
+                    <td colspan="3" class="text-center">Sin registros ingresados</td>
+                </tr>
+                <tr *ngFor="let presup of presupuestos; let i = index">
+                  <th scope="row">{{ i + 1 }}</th>
+                  <td>{{ getUnidadNombre(presup.codigo_unidad_organizativa) }}</td>
+                  <td>{{ presup.monto }}</td>
+                  <td class="acciones">
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined editbtn">
+                          edit
+                        </span>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <a [href]="'empleados/ver-empleado/' + presup.codig_presupuestario">
+                          <span class="material-symbols-outlined viewbtn">
+                            visibility
+                          </span>
+                        </a>
+                      </button>
+                    </div>
+                    <div>
+                      <button>
+                        <span class="material-symbols-outlined trashbtb">
+                          delete
+                        </span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
