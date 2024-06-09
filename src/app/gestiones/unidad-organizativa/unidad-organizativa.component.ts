@@ -14,7 +14,7 @@ import Swal from 'sweetalert2';
   templateUrl: './unidad-organizativa.component.html',
   styleUrl: './unidad-organizativa.component.css'
 })
-export class UnidadComponent implements OnInit {
+export class UnidadOrganizativaComponent implements OnInit {
   @ViewChild('unidadModal') unidadModal!: ElementRef;
   unidad: UnidadOrganizativa[] = [];
   todasLasUnidades: UnidadOrganizativa[] = [];
@@ -25,8 +25,9 @@ export class UnidadComponent implements OnInit {
   constructor(private unidadService: unidadService, private fb: FormBuilder){
     this.unidadForm = this.fb.group({
       centro_costos: ['', Validators.required],
-      nombre_unidad: ['', Validators.required],
-      codigo_estructura: ['', Validators.required],
+      nombre: ['', Validators.required],
+      codigo_tipo_estructura: ['', Validators.required],
+      codigo_padre: ['', Validators.required]
     });
   }
 
