@@ -8,12 +8,13 @@ import { EstadoCivil } from '../../core/models/EstadoCivil';
 import { Pais } from '../../core/models/Pais';
 import { Municipio } from '../../core/models/Municipio';
 import { Profesion } from '../../core/models/Profesion';
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class empleadoService{
-    private url: string=""; //Aqui va el url de la api
+    private url: string=environment.apiUrl;; //Aqui va el url de la api
 
     constructor(private http: HttpClient){}
 
