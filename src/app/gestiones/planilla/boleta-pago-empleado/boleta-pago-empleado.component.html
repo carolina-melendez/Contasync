@@ -1,8 +1,13 @@
 <div>
-  <app-header />
+  <app-header></app-header>
 
   <div class="boleta-section my-5 py-5">
-    <div class="view">
+    <div class="exportar pt-5">
+      <button class="generar" (click)="generatePDF()">
+          EXPORTAR
+      </button>
+    </div>
+    <div class="view" id="view">
       <h1>BOLETA DE PAGO A EMPLEADO</h1>
 
       <div class="mx-5 my-3">
@@ -10,7 +15,7 @@
           <thead class="table-secondary">
             <tr>
               <th scope="col">Nombre</th>
-              <td scope="col">Clara Elizabeth Sandoval López</td>
+              <td id="file-name" scope="col">Clara Elizabeth Sandoval López</td>
             </tr>
             <tr>
               <th scope="col">Periodo</th>
@@ -85,11 +90,5 @@
       </div>
     </div>
   </div>
-  <div class="exportar">
-    <button class="generar">
-        <a href=""
-          >EXPORTAR 
-        </a>
-      </button>
-  </div>
+  
 </div>
