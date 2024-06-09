@@ -37,7 +37,7 @@ export class RolesComponent implements OnInit {
 
   loadRoles() {
     this.rolService.getAll().subscribe((data: any) => {
-      this.roles = data.roles; // Asigna directamente el array de roles
+      this.roles = data.roles; 
     });
   }
   
