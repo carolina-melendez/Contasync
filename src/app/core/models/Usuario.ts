@@ -1,8 +1,9 @@
-export class Usuario{
-    codigo_usuario?: number;
-    nombre_usuario?: string;
+import { Rol } from '../models/Rol'; 
+
+export class User{
+    id?: number;
+    name?: string;
     password?: string;
-    correo_institucional?: string;
-    fecha_creacion?: Date;
-    fecha_desactivacion?: Date;
+    email?: string;
+    roles?: Rol[];
 }
