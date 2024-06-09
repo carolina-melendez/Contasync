@@ -43,10 +43,13 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">CC-004</th>
-                  <td>Recursos Humanos</td>
-                  <td>Administración</td>
+                <tr *ngIf="unidad.length === 0">
+                  <td colspan="3" class="text-center">Sin registros ingresados</td>
+              </tr>
+                <tr *ngFor="let uni of unidad">
+                  <th scope="row">{{uni.centro_costos}}</th>
+                  <td>{{uni.nombre}}</td>
+                  <td>{{getNombrePadre(uni.codigo_padre)}}</td>
                   <td class="acciones">
                     <div>
                       <button>
@@ -62,62 +65,6 @@
                             visibility
                           </span>
                         </a>
-                      </button>
-                    </div>
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined trashbtb">
-                          delete
-                        </span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">CC-005</th>
-                  <td>Redes</td>
-                  <td>IT</td>
-                  <td class="acciones">
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined editbtn">
-                          edit
-                        </span>
-                      </button>
-                    </div>
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined viewbtn">
-                          visibility
-                        </span>
-                      </button>
-                    </div>
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined trashbtb">
-                          delete
-                        </span>
-                      </button>
-                    </div>
-                  </td>
-                </tr>
-                <tr>
-                  <th scope="row">CC-001</th>
-                  <td>Presidencia</td>
-                  <td></td>
-                  <td class="acciones">
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined editbtn">
-                          edit
-                        </span>
-                      </button>
-                    </div>
-                    <div>
-                      <button>
-                        <span class="material-symbols-outlined viewbtn">
-                          visibility
-                        </span>
                       </button>
                     </div>
                     <div>

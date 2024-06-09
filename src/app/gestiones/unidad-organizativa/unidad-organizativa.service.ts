@@ -2,13 +2,14 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { UnidadOrganizativa } from "../../core/models/UnidadOrganizativa";
 import { Observable } from "rxjs";
+import { environment } from "../../../environments/environment";
 
 
 @Injectable({
     providedIn: 'root'
 })
 export class unidadService{
-    private url: string = ""; //aqui va el url de la api
+    private url: string = environment.apiUrl; //aqui va el url de la api
 
     constructor(private http: HttpClient){}
 

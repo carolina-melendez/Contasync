@@ -1,1 +1,87 @@
-<p>organizacion works!</p>
+<div>
+  <app-header></app-header>
+  <!--Aquí comenzamos a meter el código de los componentes-->
+  <div>
+    <div class="my-5 py-5">
+      <div class="section full-height pt-5">
+        <div class="head">
+          <h2>ORGANIZACIÓN</h2>
+        </div>
+        <!--Tabla-->
+        <div class="mx-5">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Nombre de la organización</th>
+                <th scope="col">Representante Legal</th>
+                <th scope="col">NIC</th>
+                <th scope="col">NIT</th>
+                <th scope="col">Sitio web</th>
+                <th scope="col">Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let org of organizacion">
+                <td>{{org.nombre_organizacion}}</td>
+                <td>{{org.representante_legal}}</td>
+                <td>{{org.nic}}</td>
+                <td>{{org.numero_identificacion_tributaria}}</td>
+                <td>{{org.sitio_web}}</td>
+                <td>
+                  <button type="button" (click)="openEditModal(org)">
+                    <span class="material-symbols-outlined editbtn">
+                      edit
+                    </span>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="cargoModal" tabindex="-1" role="dialog" aria-labelledby="cargoModalLabel" aria-hidden="true" #cargoModal>
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="cargoModalLabel">{{ isEditMode ? 'Editar Cargo' : 'Nuevo Cargo' }}</h5>
+                <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <form [formGroup]="organizacionForm">
+                  <div class="form-group">
+                    <label for="nombre_organizacion">Nombre</label>
+                    <input type="text" id="nombre_organizacion" class="form-control" formControlName="nombre_organizacion">
+                  </div>
+                  <div class="form-group">
+                    <label for="representante_legal">Representante legal</label>
+                    <input type="text" id="representante_legal" class="form-control" formControlName="representante_legal">
+                  </div>
+                  <div class="form-group">
+                    <label for="nic">NIC</label>
+                    <input type="text" id="nic" class="form-control" formControlName="nic">
+                  </div>
+                  <div class="form-group">
+                    <label for="sitio_web">Sitio web</label>
+                    <input type="text" id="sitio_web" class="form-control" formControlName="sitio_web">
+                  </div>
+                  <div class="form-group">
+                    <label for="numero_identificacion_tributaria">NIT</label>
+                    <input type="text" id="numero_identificacion_tributaria" class="form-control" formControlName="numero_identificacion_tributaria">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="saveOrganizacion()">
+                  {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                </button>
+                <button type="button" class="btn btn-secondary" (click)="hideModal()">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

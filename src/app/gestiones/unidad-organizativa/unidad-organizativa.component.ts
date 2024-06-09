@@ -14,84 +14,68 @@ import Swal from 'sweetalert2';
   templateUrl: './unidad-organizativa.component.html',
   styleUrl: './unidad-organizativa.component.css'
 })
-export class UnidadOrganizativaComponent implements OnInit {
-
+export class UnidadComponent implements OnInit {
   @ViewChild('unidadModal') unidadModal!: ElementRef;
   unidad: UnidadOrganizativa[] = [];
+  todasLasUnidades: UnidadOrganizativa[] = [];
   unidadForm: FormGroup;
   isEditMode = false;
   currentUnidadId: number | null = null;
 
-  constructor(private unidadservice: unidadService, private fb: FormBuilder) {
+  constructor(private unidadService: unidadService, private fb: FormBuilder){
     this.unidadForm = this.fb.group({
-      descripcion: ['', Validators.required]
+      centro_costos: ['', Validators.required],
+      nombre_unidad: ['', Validators.required],
+      codigo_estructura: ['', Validators.required],
     });
   }
 
-  ngOnInit() {
+  ngOnInit(){
     this.loadUnidad();
   }
 
-  loadUnidad() {
-    this.unidadservice.getAll().subscribe((data: UnidadOrganizativa[]) => {
+  loadUnidad(){
+    this.unidadService.getAll().subscribe((data: UnidadOrganizativa[]) => {
       this.unidad = data;
+      this.todasLasUnidades = data; // Asumiendo que tienes todas las unidades en la misma llamada
     });
   }
 
-  openCreateModal() {
+  openCreateModal(){
     this.isEditMode = false;
     this.unidadForm.reset();
     this.showModal();
   }
 
-  openEditModal(unidad: UnidadOrganizativa) {
+  openEditModal(unidad: UnidadOrganizativa){
     this.isEditMode = true;
-    if (unidad.codigo_unidad_organizativa !== undefined) {
+    if(unidad.codigo_unidad_organizativa !== undefined){
       this.currentUnidadId = unidad.codigo_unidad_organizativa;
     }
     this.unidadForm.patchValue(unidad);
     this.showModal();
   }
 
-  saveUnidad() {
-    if (this.unidadForm.invalid) {
+  saveUnidad(){
+    if (this.unidadForm.invalid){
       return;
     }
 
     const unidadData = this.unidadForm.value;
 
-    if (this.isEditMode && this.currentUnidadId !== null) {
-      this.unidadservice.update({ ...unidadData, codigo_unidad_organizativa: this.currentUnidadId }).subscribe(() => {
+    if(this.isEditMode && this.currentUnidadId !== null){
+      this.unidadService.update({...unidadData, id: this.currentUnidadId}).subscribe(() => {
         this.showSuccessAlert('Unidad actualizada correctamente');
         this.loadUnidad();
         this.hideModal();
       });
     } else {
-      this.unidadservice.create(unidadData).subscribe(() => {
+      this.unidadService.create(unidadData).subscribe(() =>{
         this.showSuccessAlert('Unidad creada correctamente');
         this.loadUnidad();
         this.hideModal();
       });
     }
-  }
-
-  confirmDelete(codigo_unidad_organizativa: number) {
-    Swal.fire({
-      title: '¿Estás seguro?',
-      text: 'No podrás revertir esto',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Sí, eliminar'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.unidadservice.delete(codigo_unidad_organizativa).subscribe(() => {
-          this.showSuccessAlert('Unidad eliminada correctamente');
-          this.loadUnidad();
-        });
-      }
-    });
   }
 
   showSuccessAlert(message: string) {
@@ -110,7 +94,7 @@ export class UnidadOrganizativaComponent implements OnInit {
     this.unidadModal.nativeElement.setAttribute('aria-modal', 'true');
     this.unidadModal.nativeElement.setAttribute('role', 'dialog');
   }
-
+  
   hideModal() {
     this.unidadModal.nativeElement.classList.remove('show');
     this.unidadModal.nativeElement.style.display = 'none';
@@ -118,4 +102,8 @@ export class UnidadOrganizativaComponent implements OnInit {
     this.unidadModal.nativeElement.removeAttribute('role');
   }
 
+  getNombrePadre(codigoPadre: string): string {
+    const padre = this.todasLasUnidades.find(unidad => unidad.codigo_unidad_organizativa?.toString() === codigoPadre);
+    return padre?.nombre ?? 'N/A';
+  }
 }
