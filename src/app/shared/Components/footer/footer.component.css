@@ -1,0 +1,22 @@
+/* footer.component.css */
+p {
+    font-size: 14px;
+    color: #333;
+    margin-top: 10px;
+}
+
+
+.fecha-hora {
+    font-weight: bold;
+    color: #007bff;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-top: 1px solid #ccc;
+    text-align: right;
+}
