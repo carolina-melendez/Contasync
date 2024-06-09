@@ -48,8 +48,8 @@
               </tr>
                 <tr *ngFor="let uni of unidad">
                   <th scope="row">{{uni.centro_costos}}</th>
-                  <td>{{uni.nombre}}</td>
-                  <td>{{getNombrePadre(uni.codigo_padre?.toString() ?? '')}}</td>
+                  <td>{{uni.nombre_unidad}}</td>
+                  <td>{{getNombrePadre(uni.codigo_estructura?.toString() ?? '')}}</td>
                   <td class="acciones">
                     <div>
                       <button>

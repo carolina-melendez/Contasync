@@ -31,7 +31,7 @@ export class unidadService{
     //método para actualizar la unidad organizativa
     update(unidad_organizativa: UnidadOrganizativa): Observable<UnidadOrganizativa>{
         return this.http.put<UnidadOrganizativa>(
-            this.url + '/unidad/' + unidad_organizativa.codigo_unidad_organizativa + '/', unidad_organizativa
+            this.url + '/unidad/' + unidad_organizativa.codigo_unidad + '/', unidad_organizativa
         );
     }
 

@@ -25,8 +25,8 @@ export class UnidadOrganizativaComponent implements OnInit {
   constructor(private unidadService: unidadService, private fb: FormBuilder){
     this.unidadForm = this.fb.group({
       centro_costos: ['', Validators.required],
-      nombre: ['', Validators.required],
-      codigo_tipo_estructura: ['', Validators.required],
+      nombre_unidad: ['', Validators.required],
+      codigo_estructura: ['', Validators.required],
       codigo_padre: ['', Validators.required]
     });
   }
@@ -50,8 +50,8 @@ export class UnidadOrganizativaComponent implements OnInit {
 
   openEditModal(unidad: UnidadOrganizativa){
     this.isEditMode = true;
-    if(unidad.codigo_unidad_organizativa !== undefined){
-      this.currentUnidadId = unidad.codigo_unidad_organizativa;
+    if(unidad.codigo_organizacion !== undefined){
+      this.currentUnidadId = unidad.codigo_organizacion;
     }
     this.unidadForm.patchValue(unidad);
     this.showModal();
@@ -103,8 +103,8 @@ export class UnidadOrganizativaComponent implements OnInit {
     this.unidadModal.nativeElement.removeAttribute('role');
   }
 
-  getNombrePadre(codigoPadre: string): string {
-    const padre = this.todasLasUnidades.find(unidad => unidad.codigo_unidad_organizativa?.toString() === codigoPadre);
-    return padre?.nombre ?? 'N/A';
+  getNombrePadre(codigoestructura: string): string {
+    const padre = this.todasLasUnidades.find(unidad => unidad.codigo_unidad?.toString() === codigoestructura);
+    return padre?.nombre_unidad ?? 'N/A';
   }
 }
