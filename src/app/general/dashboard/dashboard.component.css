@@ -36,3 +36,7 @@
     justify-content: center;
     margin-top: 2rem;
 }
+a {
+    text-decoration: none; /* Quitar subrayado */
+    color: inherit; /* Usar el color del texto del contenedor padre */
+}
