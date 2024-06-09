@@ -1,7 +1,7 @@
 import { Routes } from "@angular/router";
 import { CargoComponent } from "./cargo/cargo.component";
 import { DepartamentoComponent } from "./departamento/departamento.component";
-import { DetalleDescuentoComponent } from "./detalle-descuento/detalle-descuento.component";
+import { TipoIngresoComponent } from "./tipo-ingreso/tipo-ingreso.component";
 import { EstadoCivilComponent } from "./estado-civil/estado-civil.component";
 import { MunicipioComponent } from "./municipio/municipio.component";
 import { PaisComponent } from "./pais/pais.component";
@@ -13,7 +13,7 @@ import { TipoDocumentoComponent } from "./tipo-documento/tipo-documento.componen
 export const CATALOGO_ROUTES: Routes = [
         {path: 'cargo', component: CargoComponent},
         {path: 'departamento', component: DepartamentoComponent},
-        {path: 'detalle-descuento', component: DetalleDescuentoComponent},
+        {path: 'tipo-ingresos', component: TipoIngresoComponent},
         {path: 'estado-civil', component: EstadoCivilComponent},
         {path: 'municipio', component: MunicipioComponent},
         {path: 'pais', component: PaisComponent},

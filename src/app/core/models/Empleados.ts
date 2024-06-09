@@ -13,7 +13,6 @@ export class Empleado{
     correo_electronico?: string;
     telefono?: number;
     direccion?: string;
-    sexo?: string;
    
    
     codigo_municipio?: number;
@@ -21,5 +20,6 @@ export class Empleado{
     codigo_pais?: number;
     codigo_tipo_documento?: number;
     codigo_estado_civil?: number;
-    codigo_profesion?: number;
+    id_profesion?: number;
+    codigo_cargo?: number;
 }
