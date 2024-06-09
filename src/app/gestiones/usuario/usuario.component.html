@@ -1,1 +1,91 @@
-<p>usuario works!</p>
+<div>
+    <app-header></app-header>
+    <div class="my-5 py-5">
+      <div class="section full-height pt-5">
+        <div class="head">
+          <div></div>
+          <h2>Gestión de Usuarios</h2>
+          <button type="button" class="btn btn-primary" (click)="openCreateModal()">
+            <span class="material-symbols-outlined addbtn">add_circle</span>
+          </button>
+        </div>
+  
+        <div class="mx-5">
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Rol</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="users.length === 0">
+                <td colspan="5" class="text-center">Sin registros ingresados</td>
+              </tr>
+              <tr *ngFor="let user of users">
+                <td>{{ user.id }}</td>
+                <td>{{ user.name }}</td>
+                <td>{{ user.email }}</td>
+                <td>{{ user.roles && user.roles.length > 0 ? user.roles[0].name : 'N/A' }}</td>
+                <td class="acciones">
+                  <button type="button" class="btn btn-info" (click)="openEditModal(user)">
+                    <span class="material-symbols-outlined editbtn">edit</span>
+                  </button>
+                  <button *ngIf="user.id !== undefined" type="button" class="btn btn-danger" (click)="confirmDelete(user.id)">
+                    <span class="material-symbols-outlined trashbtb">delete</span>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Modal -->
+      <div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="userModalLabel" aria-hidden="true" #userModal>
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="userModalLabel">{{ isEditMode ? 'Editar Usuario' : 'Nuevo Usuario' }}</h5>
+              <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="userForm">
+                <div class="form-group">
+                  <label for="name">Nombre</label>
+                  <input type="text" id="name" class="form-control" formControlName="name">
+                </div>
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" class="form-control" formControlName="email">
+                </div>
+                <div class="form-group">
+                  <label for="password">Contraseña</label>
+                  <input type="password" id="password" class="form-control" formControlName="password">
+                </div>
+                <div class="form-group">
+                  <label for="role">Rol</label>
+                  <select id="role" class="form-control" formControlName="role">
+                    <option *ngFor="let role of roles" [value]="role.id">{{ role.name }}</option>
+                  </select>
+                </div>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" (click)="saveUser()">
+                {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+              </button>
+              <button type="button" class="btn btn-secondary" (click)="hideModal()">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
