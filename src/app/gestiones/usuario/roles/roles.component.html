@@ -1,0 +1,93 @@
+<div>
+    <app-header></app-header>
+    <div class="my-5 py-5">
+        <div class="section full-height pt-5">
+            <div class="head">
+                <div></div>
+                <h2>Gestión de Roles</h2>
+                <button type="button" class="btn btn-primary" (click)="openCreateModal()">
+                    <span class="material-symbols-outlined addbtn">add_circle</span>
+                </button>
+            </div>
+
+            <div class="mx-5">
+                <table class="table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngIf="roles.length === 0">
+                            <td colspan="3" class="text-center">Sin registros ingresados</td>
+                        </tr>
+                        <tr *ngFor="let rol of roles">
+                            <td>{{ rol.id }}</td>
+                            <td>{{ rol.name }}</td>
+                            <td>
+                                <button type="button" class="btn btn-info" (click)="openEditModal(rol)">
+                                    <span class="material-symbols-outlined editbtn">edit</span>
+                                </button>
+                                <button type="button" class="btn btn-danger" (click)="confirmDelete(rol.id!)">
+                                    <span class="material-symbols-outlined trashbtb">delete</span>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="rolModal" tabindex="-1" role="dialog" aria-labelledby="rolModalLabel"
+                aria-hidden="true" #rolModal>
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="rolModalLabel">{{ isEditMode ? 'Editar Rol' : 'Nuevo Rol' }}
+                            </h5>
+                            <button type="button" class="close" (click)="hideModal()" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form [formGroup]="rolForm">
+                                <div class="form-group">
+                                    <label for="name">Nombre</label>
+                                    <input type="text" id="name" class="form-control" formControlName="name">
+                                </div>
+                                <div class="form-group">
+                                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseExample" aria-expanded="false"
+                                        aria-controls="collapseExample">
+                                        Ver Permisos
+                                    </button>
+                                    <div class="collapse" id="collapseExample">
+                                        <div class="card card-body">
+                                            <label>Permisos</label>
+                                            <div class="permissions-list d-flex flex-wrap">
+                                                <div *ngFor="let permission of permissions" class="form-check form-check-inline" style="min-width: 150px;">
+                                                    <input class="form-check-input" type="checkbox" [id]="'permission-' + permission.id" [value]="permission.name" (change)="permission.name && togglePermission(permission.name)">
+                                                    <label class="form-check-label" [for]="'permission-' + permission.id">{{ permission.name }}</label>
+                                                </div>                                                
+                                            </div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+
+
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" (click)="saveRol()">
+                                {{ isEditMode ? 'Actualizar' : 'Guardar' }}
+                            </button>
+                            <button type="button" class="btn btn-secondary" (click)="hideModal()">Cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

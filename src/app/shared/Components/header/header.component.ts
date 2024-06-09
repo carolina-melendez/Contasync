@@ -1,8 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, Directive, ElementRef, HostBinding, HostListener, Input, OnInit, Renderer2 } from '@angular/core';
 import { TimeComponent } from '../time/time.component';
-
-
+import { AuthService } from '../../../auth/auth.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-header',
   standalone: true,
@@ -11,6 +11,8 @@ import { TimeComponent } from '../time/time.component';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  userName: string = '';
 
   isCatalogOpen = false;
   isUsersOpen = false;
@@ -37,10 +39,26 @@ export class HeaderComponent implements OnInit {
   private scrollPosition = 0; // Initialize scroll position
   headerElement: any;
 
-  constructor(private elementRef: ElementRef, private renderer: Renderer2) { }
+  constructor(private elementRef: ElementRef, private renderer: Renderer2, private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.headerElement = this.elementRef.nativeElement.querySelector('.start-style');
+
+    this.authService.getProfile().subscribe(
+      (response) => {
+        this.userName = response.name;
+      },
+      (error) => {
+        console.error('Error al obtener el perfil del usuario', error);
+      }
+    );
+  }
+
+  logout() {
+    this.authService.logout().subscribe(() => {
+      this.userName = '';
+      this.router.navigate(['/login']);
+    });
   }
 
   @HostListener('window:scroll', ['$event'])
