@@ -1,10 +1,10 @@
-<div>
+<div *ngIf="empleado">
   <app-header />
 
   <div class="my-5 py-5">
     <div class="view">
 
-        <h1>MOISES ANDRÉS URBINA AGUILAR</h1>
+        <h1>{{ empleado.primer_nombre }} {{ empleado.segundo_nombre }} {{ empleado.tercer_nombre }} {{ empleado.apellido_paterno }} {{ empleado.apellido_materno }}</h1>
         <hr class="info" />
         <h2 class="pt-3 pb-2">Recursos Humanos</h2>
       <hr class="hr" />
