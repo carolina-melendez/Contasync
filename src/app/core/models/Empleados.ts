@@ -2,6 +2,7 @@ export class Empleado{
     codigo_empleado?: number;
     primer_nombre?: string;
     segundo_nombre?: string;
+    tercer_nombre?: string;
     apellido_materno?: string;
     apellido_paterno?: string;
     fecha_nacimiento?: Date;
@@ -12,6 +13,7 @@ export class Empleado{
     correo_electronico?: string;
     telefono?: number;
     direccion?: string;
+    sexo?: string;
    
    
     codigo_municipio?: number;
