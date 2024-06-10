@@ -14,28 +14,28 @@ export class presupuestoService{
 
     //Obtiene la lista de presupuesto
     getAll(): Observable<Presupuesto[]>{
-        return this.http.get<Presupuesto[]>(this.url + '/presupuesto/');
+        return this.http.get<Presupuesto[]>(this.url + '/presupuesto_unidad/');
     }
 
     //método que permite crear un nuevo presupuesto
     create(presupuesto:Presupuesto): Observable<Presupuesto>{
-        return this.http.put<Presupuesto>(this.url + '/presupuesto/', presupuesto)
+        return this.http.put<Presupuesto>(this.url + '/presupuesto_unidad/', presupuesto)
     };
 
     //método que obtiene un solo presupuesto
     get(id: number): Observable<Presupuesto>{
-        return this.http.get<Presupuesto>(this.url + '/presupuesto/' + id);
+        return this.http.get<Presupuesto>(this.url + '/presupuesto_unidad/' + id);
     }
 
     //método para actualizar presupuesto
     update(presupuesto: Presupuesto): Observable<Presupuesto>{
         return this.http.put<Presupuesto>(
-            this.url + '/presupuesto/' + presupuesto.codig_presupuestario + '/', presupuesto
+            this.url + '/presupuesto_unidad/' + presupuesto.codig_presupuestario + '/', presupuesto
         );
     }
 
     //método para eliminar presupuesto
     delete(id?:number): Observable<Presupuesto>{
-        return this.http.delete<Presupuesto>(this.url + '/presupuesto/' + id);
+        return this.http.delete<Presupuesto>(this.url + '/presupuesto_unidad/' + id);
     }
 }

@@ -22,7 +22,7 @@ export const GESTIONES_ROUTES: Routes = [
     {path: 'usuario', component: UsuarioComponent},
 
     {path: 'empleados/registrar-empleado', component:RegistrarEmpleadoComponent},
-    {path: 'empleados/ver-empleado/:id', component:VerEmpleadoComponent},
+    {path: 'empleados/ver-empleado/{id}', component:VerEmpleadoComponent},
 
     {path: 'planilla/generar-planilla', component:GenerarPlanillaComponent},
     {path: 'planilla/editar-planilla/{id}', component:EditarPlanillaComponent},

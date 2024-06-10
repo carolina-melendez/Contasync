@@ -20,29 +20,29 @@ export class empleadoService {
 
     //Obtiene la lista de empleados de la base
     getAll(): Observable<Empleado[]>{
-        return this.http.get<Empleado[]>(this.url + '/empleados/');
+        return this.http.get<Empleado[]>(this.url + '/empleado/');
     }
 
     //Método que permite crear nuevo empleado
     create(empleado:Empleado): Observable<Empleado>{
-        return this.http.post<Empleado>(this.url + '/empleados/', empleado);
+        return this.http.post<Empleado>(this.url + '/empleado/', empleado);
     }
 
     //método que obtiene un solo empleado
     get(id: number): Observable<Empleado>{
-        return this.http.get<Empleado>(this.url +'/empleados/'+ id);
+        return this.http.get<Empleado>(this.url +'/empleado/'+ id);
     }
 
     //método para actualizar empleado
     update(empleado: Empleado): Observable<Empleado>{
         return this.http.put<Empleado>(
-            this.url + '/empleados/' + empleado.codigo_empleado + '/', empleado
+            this.url + '/empleado/' + empleado.codigo_empleado + '/', empleado
         );
     }
 
     //método para eliminar empleado
     delete(id?: number): Observable<Empleado>{
-        return this.http.delete<Empleado>(this.url + '/empleados/' + id);
+        return this.http.delete<Empleado>(this.url + '/empleado/' + id);
     }
 
     //Obtener cargo
