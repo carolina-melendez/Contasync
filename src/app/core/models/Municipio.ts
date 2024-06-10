@@ -1,5 +1,5 @@
 export class Municipio{
-    codigo_municipio?: number;
-    codigo_departamento?: number;
+    id?: number;
+    departamento_id?: number;
     nombre?: string;
 }

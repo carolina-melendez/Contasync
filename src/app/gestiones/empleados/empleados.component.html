@@ -51,12 +51,12 @@
             </thead>
             <tbody>
               <tr *ngFor="let empleado of empleados; let i = index">
-                <th scope="row">{{ i + 1 }}</th>
+                <th scope="row">{{ empleado.codigo_empleado }}</th>
                 <td>{{ getNombreCompleto(empleado) }}</td>
                 <td>{{ getApellidoCompleto(empleado) }}</td>
-                <td>{{ empleado.id_profesion }}</td>
-                <td>{{ empleado.municipio_id }}</td>
-                <td>{{ empleado.departamento_id }}</td>
+                <td>{{ getProfesionDescripcion(empleado.id_profesion) }}</td>
+                <td>{{ getMunicipioDescripcion(empleado.municipio_id) }}</td>
+                <td>{{ getDepartamentoDescripcion(empleado.departamento_id) }}</td>
                 <td>{{ getCargoDescripcion(empleado.codigo_cargo) }}</td>
                 <td class="acciones">
                   <div>

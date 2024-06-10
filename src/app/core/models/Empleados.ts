@@ -7,18 +7,25 @@ export class Empleado{
     apellido_paterno?: string;
     fecha_nacimiento?: Date;
     numero_documento?: String;
-    numero_NIT?: number;
-    numero_ISSS?: number;
-    numero_NUP?: number;
-    correo_electronico?: string;
-    telefono?: number;
-    direccion?: string;
-   
-    municipio_id?: number;
-    departamento_id?: number;
-    codigo_pais?: number;
-    codigo_tipo_documento?: number;
-    codigo_estado_civil?: number;
+    tipo_documento_id?: String;
+    numero_identificacion_tributaria?: number;
+    codigo_isss?: number;
+    codigo_nup?: number; 
     id_profesion?: number;
+    id_estado_civil?: number;
+    direccion?: string;
+    pais_direccion_id?: number;
+    departamento_id?: number;
+    municipio_id?: number;
     codigo_cargo?: number;
+    codigo_unidad?: number;
+    codigo_jefe?: number;
+    correo_institucional?: string;
+    salario?: number;
+    status?: string;
+    sexo?: string;
+    fecha_contratacion?: Date;
+    fecha_despido?: Date;
+    correo_personal?: string;
+    telefono_contacto?: string;
 }

@@ -2,13 +2,13 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Municipio } from "../../core/models/Municipio";
-
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class municipioService{
-    private url: string = ""; //Aqui va el url de la api
+    private url: string = environment.apiUrl; //Aqui va el url de la api
 
     constructor(private http: HttpClient){}
 
@@ -30,7 +30,7 @@ export class municipioService{
     //método para actualizar municipio
     update(municipio: Municipio): Observable<Municipio>{
         return this.http.put<Municipio>(
-            this.url + '/municipio/' + municipio.codigo_municipio + '/', municipio
+            this.url + '/municipio/' + municipio.id + '/', municipio
         );
     }
 
