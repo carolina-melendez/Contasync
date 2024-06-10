@@ -145,19 +145,19 @@ export class VerEmpleadoComponent implements OnInit {
     return pais && pais.nombre ? pais.nombre: 'N/A';
   }
 
-  getDepartamentoDescripcion(codigo_departamento?: number): string {
-    if (codigo_departamento === undefined || this.departamentos.length === 0) {
+  getDepartamentoDescripcion(id?: number): string {
+    if (id === undefined || this.departamentos.length === 0) {
       return 'N/A';
     }
-    const departamento = this.departamentos.find(d => d.codigo_departamento === codigo_departamento);
+    const departamento = this.departamentos.find(d => d.id === id);
     return departamento && departamento.nombre ? departamento.nombre: 'N/A';
   }
 
-  getMunicipioDescripcion(codigo_municipio?: number): string {
-    if (codigo_municipio === undefined || this.municipios.length === 0) {
+  getMunicipioDescripcion(id?: number): string {
+    if (id === undefined || this.municipios.length === 0) {
       return 'N/A';
     }
-    const municipio = this.municipios.find(m => m.codigo_municipio === codigo_municipio);
+    const municipio = this.municipios.find(m => m.id === id);
     return municipio && municipio.nombre ? municipio.nombre : 'N/A';
   }
 

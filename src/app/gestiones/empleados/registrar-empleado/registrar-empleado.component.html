@@ -1,12 +1,12 @@
 <div>
-  <app-header />
+  <app-header></app-header>
 
   <div class="my-5 py-5">
     <div
       class="container my-5 py-5 mx-auto"
       style="background-color: rgb(244, 244, 244); border-radius: 15px"
     >
-    <h1 class="text-center py-2">Registro de empleado</h1>
+      <h1 class="text-center py-2">Registro de empleado</h1>
       <form id="formularioRegistro" class="needs-validation" novalidate>
         <!--Primera linea-->
         <div class="row d-flex justify-content-start mb-3">
@@ -17,7 +17,8 @@
               type="text"
               class="form-control"
               id="primer_nombre"
-              placeholder=""
+              [(ngModel)]="empleado.primer_nombre"
+              name="primer_nombre"
               required
             />
             <div class="invalid-feedback">
@@ -33,19 +34,19 @@
               type="text"
               class="form-control"
               id="segundo_nombre"
-              placeholder=""
+              [(ngModel)]="empleado.segundo_nombre"
+              name="segundo_nombre"
             />
           </div>
-          <!--Tercer nombre nombre-->
+          <!--Tercer nombre-->
           <div class="col-md-4">
-            <label for="tercer_nombre" class="form-label"
-              >Tercer nombre</label
-            >
+            <label for="tercer_nombre" class="form-label">Tercer nombre</label>
             <input
               type="text"
               class="form-control"
               id="tercer_nombre"
-              placeholder=""
+              [(ngModel)]="empleado.tercer_nombre"
+              name="tercer_nombre"
             />
           </div>
         </div>
@@ -61,7 +62,8 @@
               type="text"
               class="form-control"
               id="apellido_paterno"
-              placeholder=""
+              [(ngModel)]="empleado.apellido_paterno"
+              name="apellido_paterno"
               required
             />
             <div class="invalid-feedback">
@@ -77,7 +79,8 @@
               type="text"
               class="form-control"
               id="apellido_materno"
-              placeholder=""
+              [(ngModel)]="empleado.apellido_materno"
+              name="apellido_materno"
               required
             />
             <div class="invalid-feedback">
@@ -93,8 +96,8 @@
               type="text"
               class="form-control"
               id="apellido_casada"
-              placeholder=""
-              required
+              [(ngModel)]="empleado.apellido_casada"
+              name="apellido_casada"
             />
           </div>
         </div>
@@ -106,10 +109,17 @@
             <label for="codigo_tipo_documento" class="form-label"
               >Tipo de documento</label
             >
-            <select class="form-select" id="codigo_tipo_documento" required>
+            <select
+              class="form-select"
+              id="codigo_tipo_documento"
+              [(ngModel)]="empleado.codigo_tipo_documento"
+              name="codigo_tipo_documento"
+              required
+            >
               <option selected disabled value="">Seleccione</option>
-              <option>DUI</option>
-              <option>Pasaporte</option>
+              <option *ngFor="let tipoDocumento of tipoDocumentos" [value]="tipoDocumento.codigo">
+                {{ tipoDocumento.nombre }}
+              </option>
             </select>
             <div class="invalid-feedback">
               Por favor seleccione un tipo de documento.
@@ -124,7 +134,8 @@
               type="number"
               class="form-control"
               id="numero_documento"
-              placeholder=""
+              [(ngModel)]="empleado.numero_documento"
+              name="numero_documento"
             />
           </div>
           <!--Fecha de nacimiento-->
@@ -136,46 +147,50 @@
               type="date"
               class="form-control"
               id="fecha_nacimiento"
-              placeholder=""
+              [(ngModel)]="empleado.fecha_nacimiento"
+              name="fecha_nacimiento"
             />
           </div>
         </div>
 
         <!--Cuarta linea-->
         <div class="row d-flex justify-content-between mb-3">
-          <!--Numero NIT-->
+          <!--Número NIT-->
           <div class="col-md-4">
             <label for="numero_NIT" class="form-label">NIT</label>
             <input
               type="text"
               class="form-control"
               id="numero_NIT"
-              placeholder=""
+              [(ngModel)]="empleado.numero_NIT"
+              name="numero_NIT"
               required
             />
           </div>
-          <!--Numero ISSS-->
+          <!--Número ISSS-->
           <div class="col-md-4">
             <label for="numero_ISSS" class="form-label">ISSS</label>
             <input
               type="text"
               class="form-control"
               id="numero_ISSS"
-              placeholder=""
+              [(ngModel)]="empleado.numero_ISSS"
+              name="numero_ISSS"
               required
             />
             <div class="invalid-feedback">
-              Por favor ingrese su numero de ISSS
+              Por favor ingrese su número de ISSS
             </div>
           </div>
-          <!--Numero NUP-->
+          <!--Número NUP-->
           <div class="col-md-4">
             <label for="numero_NUP" class="form-label">NUP</label>
             <input
               type="text"
               class="form-control"
               id="numero_NUP"
-              placeholder=""
+              [(ngModel)]="empleado.numero_NUP"
+              name="numero_NUP"
               required
             />
           </div>
@@ -188,11 +203,18 @@
             <label for="codigo_estado_civil" class="form-label"
               >Estado civil</label
             >
-            <select class="form-select" id="codigo_estado_civil" required>
-              <option selected disabled value="">Seleccione</option>
-              <option>Femenino</option>
-              <option>Masculino</option>
-            </select>
+            <select
+            class="form-select"
+            id="codigo_estado_civil"
+            [(ngModel)]="empleado.codigo_estado_civil"
+            name="codigo_estado_civil"
+            required
+          >
+            <option selected disabled value="">Seleccione</option>
+            <option *ngFor="let estado of estadoCivil" [value]="estado.id_estado_civil">
+              {{ estado.descripcion }}
+            </option>
+          </select>
             <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
           <!--Correo Electrónico-->
@@ -204,21 +226,24 @@
               type="email"
               class="form-control"
               id="correo_electronico"
+              [(ngModel)]="empleado.correo_electronico"
+              name="correo_electronico"
               placeholder="correo@ejemplo.com"
               required
             />
             <div class="invalid-feedback">
-              Por favor ingrese su numero de ISSS
+              Por favor ingrese su correo electrónico
             </div>
           </div>
-          <!--Telefono-->
+          <!--Teléfono-->
           <div class="col-md-4">
             <label for="telefono" class="form-label">Teléfono</label>
             <input
               type="number"
               class="form-control"
               id="telefono"
-              placeholder=""
+              [(ngModel)]="empleado.telefono"
+              name="telefono"
               required
             />
           </div>
@@ -233,55 +258,87 @@
               type="text"
               class="form-control"
               id="direccion"
-              placeholder=""
+              [(ngModel)]="empleado.direccion"
+              name="direccion"
               required
             />
           </div>
           <!--Sexo-->
           <div class="col-md-4">
             <label for="sexo" class="form-label">Sexo</label>
-            <select class="form-select" id="sexo" required>
+            <select
+              class="form-select"
+              id="sexo"
+              [(ngModel)]="empleado.sexo"
+              name="sexo"
+              required
+            >
               <option selected disabled value="">Seleccione</option>
-              <option value="Femenino">Femenino</option>
-              <option value="Masculino">Masculino</option>
+              <option value="femenino">Femenino</option>
+              <option value="masculino">Masculino</option>
             </select>
             <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
         </div>
 
-        <!--Septima linea-->
+        <!--Séptima linea-->
         <div class="row d-flex justify-content-between mb-3">
-          <!--Pais-->
+          <!--País-->
           <div class="col-md-4">
-            <label for="pais" class="form-label">País</label>
-            <select class="form-select" id="pais" required>
+            <label for="codigo_pais" class="form-label">País</label>
+            <select
+              class="form-select"
+              id="codigo_pais"
+              [(ngModel)]="empleado.codigo_pais"
+              name="codigo_pais"
+              required
+            >
               <option selected disabled value="">Seleccione</option>
-              <option>El Salvador</option>
-              <option>Guatemala</option>
+              <option *ngFor="let pais of paises" [value]="pais.id">
+                {{ pais.nombre }}
+              </option>
             </select>
             <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
           <!--Departamento-->
           <div class="col-md-4">
-            <label for="departamento" class="form-label">Departamento</label>
-            <select class="form-select" id="departamento" required>
+            <label for="codigo_departamento" class="form-label"
+              >Departamento</label
+            >
+            <select
+              class="form-select"
+              id="codigo_departamento"
+              [(ngModel)]="empleado.codigo_departamento"
+              name="codigo_departamento"
+              required
+            >
               <option selected disabled value="">Seleccione</option>
-              <option>San Salvador</option>
-              <option>San Miguel</option>
-              <option>Usulután</option>
-              <option>La Unión</option>
-              <option>Santa Ana</option>
+              <option
+                *ngFor="let departamento of departamentos"
+                [value]="departamento.id"
+              >
+                {{ departamento.nombre }}
+              </option>
             </select>
             <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
           <!--Municipio-->
           <div class="col-md-4">
-            <label for="municipio" class="form-label">Municipio</label>
-            <select class="form-select" id="municipio" required>
+            <label for="codigo_municipio" class="form-label">Municipio</label>
+            <select
+              class="form-select"
+              id="codigo_municipio"
+              [(ngModel)]="empleado.codigo_municipio"
+              name="codigo_municipio"
+              required
+            >
               <option selected disabled value="">Seleccione</option>
-              <option>San Salvador</option>
-              <option>Soyapango</option>
-              <option>Ilopango</option>
+              <option
+                *ngFor="let municipio of municipios"
+                [value]="municipio.id"
+              >
+                {{ municipio.nombre }}
+              </option>
             </select>
             <div class="invalid-feedback">Por favor seleccione una opción</div>
           </div>
@@ -290,111 +347,142 @@
         <div class="segunda_seccion">
           <h2 class="text-center py-3">Información profesional del empleado</h2>
 
-        <!--Octava linea-->
-        <div class="row d-flex justify-content-start mb-3">
-          <!--Profesion-->
-          <div class="col-md-4">
-            <label for="codigo_profesion" class="form-label">Profesión</label>
-            <select class="form-select" id="codigo_profesion">
-              <option selected disabled value="">Seleccione</option>
-              <option>Contador</option>
-              <option>Analista de Calidad</option>
-              <option>Programador</option>
-            </select>
-          </div>
-          <!--Cargo-->
-          <div class="col-md-4">
-            <label for="codigo_cargo" class="form-label">Cargo</label>
-            <select class="form-select" id="codigo_cargo">
-              <option selected disabled value="">Seleccione</option>
-              <option>Artista Técnico</option>
-              <option>Recursos humanos</option>
-              <option>QA jr.</option>
-            </select>
-          </div>
-          <!--Unidad-->
-          <div class="col-md-4">
-            <label for="codigo_unidad" class="form-label">Unidad</label>
-            <select class="form-select" id="codigo_unidad">
-              <option selected disabled value="">Seleccione</option>
-              <option>Departamento 1</option>
-              <option>Departamento 2</option>
-              <option>Departamento 3</option>
-            </select>
-          </div>
-        </div>
-
-        <!--Novena linea-->
-        <div class="row d-flex justify-content-between mb-3">
-          <!--Correo Institucional-->
-          <div class="col-md-4">
-            <label for="correo_institucional" class="form-label"
-              >Correo institucional</label
-            >
-            <input
-              type="email"
-              class="form-control"
-              id="correo_institucional"
-              placeholder=""
-            />
-          </div>
-          <!--Salario Base-->
-          <div class="col-md-4">
-            <label for="salario_base" class="form-label"
-              >Salario base</label
-            >
-            <input
-              type="number"
-              class="form-control"
-              id="salario_base"
-              placeholder=""
-            />
-            <div class="invalid-feedback">
-              Por favor ingrese su apellido materno
+          <!--Octava linea-->
+          <div class="row d-flex justify-content-start mb-3">
+            <!--Profesión-->
+            <div class="col-md-4">
+              <label for="codigo_profesion" class="form-label">Profesión</label>
+              <select
+                class="form-select"
+                id="codigo_profesion"
+                [(ngModel)]="empleado.codigo_profesion"
+                name="codigo_profesion"
+              >
+                <option selected disabled value="">Seleccione</option>
+                <option
+                  *ngFor="let profesion of profesiones"
+                  [value]="profesion.id_profesion"
+                >
+                  {{ profesion.descripcion }}
+                </option>
+              </select>
+            </div>
+            <!--Cargo-->
+            <div class="col-md-4">
+              <label for="codigo_cargo" class="form-label">Cargo</label>
+              <select
+                class="form-select"
+                id="codigo_cargo"
+                [(ngModel)]="empleado.codigo_cargo"
+                name="codigo_cargo"
+              >
+                <option selected disabled value="">Seleccione</option>
+                <option
+                  *ngFor="let cargo of cargos"
+                  [value]="cargo.codigo_cargo"
+                >
+                  {{ cargo.cargo_descripcion }}
+                </option>
+              </select>
+            </div>
+            <!--Unidad-->
+            <div class="col-md-4">
+              <label for="codigo_unidad" class="form-label">Unidad</label>
+              <select
+                class="form-select"
+                id="codigo_unidad"
+                [(ngModel)]="empleado.codigo_unidad"
+                name="codigo_unidad"
+              >
+                <option selected disabled value="">Seleccione</option>
+                <option
+                  *ngFor="let unidad of unidades"
+                  [value]="unidad.codigo_unidad"
+                >
+                  {{ unidad.nombre_unidad }}
+                </option>
+              </select>
             </div>
           </div>
-          <!--Estado-->
-          <div class="col-md-4">
-            <label for="estado" class="form-label">Estado</label>
-            <select class="form-select" id="estado">
-              <option selected disabled value="">Seleccione</option>
-              <option>Activo</option>
-              <option>Inactivo</option>
-            </select>
-          </div>
-        </div>
 
-        <!--Decima linea-->
-        <div class="row d-flex justify-content-start mb-3">
-          <!--Fecha inicio-->
-          <div class="col-md-4">
-            <label for="fecha_inicio" class="form-label"
-              >Fecha inicio</label
-            >
-            <input
-              type="date"
-              class="form-control"
-              id="fecha_inicio"
-              placeholder=""
-            />
+          <!--Novena linea-->
+          <div class="row d-flex justify-content-between mb-3">
+            <!--Correo Institucional-->
+            <div class="col-md-4">
+              <label for="correo_institucional" class="form-label"
+                >Correo institucional</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="correo_institucional"
+                [(ngModel)]="empleado.correo_institucional"
+                name="correo_institucional"
+              />
+            </div>
+            <!--Salario Base-->
+            <div class="col-md-4">
+              <label for="salario_base" class="form-label">Salario base</label>
+              <input
+                type="number"
+                class="form-control"
+                id="salario_base"
+                [(ngModel)]="empleado.salario_base"
+                name="salario_base"
+              />
+              <div class="invalid-feedback">
+                Por favor ingrese el salario base
+              </div>
+            </div>
+            <!--Estado-->
+            <div class="col-md-4">
+              <label for="estado" class="form-label">Estado</label>
+              <select
+                class="form-select"
+                id="estado"
+                [(ngModel)]="empleado.status"
+                name="estado"
+              >
+                <option selected disabled value="">Seleccione</option>
+                <option value="activo">Activo</option>
+                <option value="inactivo">Inactivo</option>
+              </select>
+            </div>
           </div>
-          <!--Fecha Fin-->
-          <div class="col-md-4">
-            <label for="fecha_fin" class="form-label"
-              >Fecha fin</label
-            >
-            <input
-              type="date"
-              class="form-control"
-              id="fecha_fin"
-              placeholder=""
-            />
+
+          <!--Décima linea-->
+          <div class="row d-flex justify-content-start mb-3">
+            <!--Fecha inicio-->
+            <div class="col-md-4">
+              <label for="fecha_inicio" class="form-label">Fecha inicio</label>
+              <input
+                type="date"
+                class="form-control"
+                id="fecha_inicio"
+                [(ngModel)]="empleado.fecha_inicio"
+                name="fecha_inicio"
+              />
+            </div>
+            <!--Fecha Fin-->
+            <div class="col-md-4">
+              <label for="fecha_fin" class="form-label">Fecha fin</label>
+              <input
+                type="date"
+                class="form-control"
+                id="fecha_fin"
+                [(ngModel)]="empleado.fecha_fin"
+                name="fecha_fin"
+              />
+            </div>
           </div>
-        </div>
         </div>
         <div class="col-10 t-10 py-2 d-flex justify-content-end">
-          <button class="btn btn-primary py-3 px-3 d-flex justify-content-end" type="submit">
-            <a href="empleados">Guardar datos</a>
+          <button
+            class="btn btn-primary py-3 px-3 d-flex justify-content-end"
+            type="submit"
+            (click)="registrarEmpleado()"
+          >
+            Guardar datos
           </button>
         </div>
       </form>

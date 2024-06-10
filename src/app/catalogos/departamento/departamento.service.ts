@@ -2,13 +2,13 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Departamento } from "../../core/models/Departamento";
-
+import { environment } from "../../../environments/environment";
 
 @Injectable({
     providedIn: 'root',
 })
 export class departamentoService{
-    private url: string="" //Aqui va el url de la api
+    private url: string=environment.apiUrl //Aqui va el url de la api
 
     constructor(private http: HttpClient){}
 
@@ -30,7 +30,7 @@ export class departamentoService{
     //método para actualizar departamento
     update(departamento:Departamento): Observable<Departamento>{
         return this.http.put<Departamento>(
-            this.url + '/departamento/' + departamento.codigo_departamento + '/', departamento
+            this.url + '/departamento/' + departamento.id + '/', departamento
         );
     }
 

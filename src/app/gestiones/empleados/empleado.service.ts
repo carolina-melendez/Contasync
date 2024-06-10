@@ -13,7 +13,7 @@ import { environment } from "../../../environments/environment";
 @Injectable({
     providedIn: 'root',
 })
-export class empleadoService{
+export class empleadoService {
     private url: string=environment.apiUrl;; //Aqui va el url de la api
 
     constructor(private http: HttpClient){}
@@ -25,7 +25,7 @@ export class empleadoService{
 
     //Método que permite crear nuevo empleado
     create(empleado:Empleado): Observable<Empleado>{
-        return this.http.put<Empleado>(this.url + '/empleados/', empleado);
+        return this.http.post<Empleado>(this.url + '/empleados/', empleado);
     }
 
     //método que obtiene un solo empleado
